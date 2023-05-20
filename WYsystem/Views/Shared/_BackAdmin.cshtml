@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/bootstrap-clearmin.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/roboto.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/material-design.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/small-n-flat.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/font-awesome.min.css">
+    <title>Property Management System</title>
+    @RenderSection("head", required: false)
+</head>
+<body class="cm-no-transition cm-1-navbar">
+    <div id="cm-menu">
+        <nav class="cm-navbar cm-navbar-primary">
+            <div class="cm-flex"><h1>Property Management System</h1></div>
+            <div class="btn btn-primary md-menu-white" data-toggle="cm-menu"></div>
+        </nav>
+        <div id="cm-menu-content">
+            <div id="cm-menu-items-wrapper">
+                <div id="cm-menu-scroller">
+                    <ul class="cm-menu-items">
+                        <li class="active cm-submenu">
+                            <a class="sf-device-computer">District Management <span class="caret"></span></a>
+                            <ul>
+                                <li><a href="/Admin/RoomIndex">Basic information</a></li>
+                                <li><a href="/Installation/Create">Adding peripheral facilities</a></li>
+                                <li><a href="/Installation/index">Facility Management</a></li>
+                                <li><a href="/Announcement/Create">Add Announcement</a></li>
+                                <li><a href="/Announcement/index">Announcement Management</a></li>
+                            </ul>
+                        </li>
+                        <li class="active cm-submenu">
+                            <a class="sf-building">Property Management <span class="caret"></span></a>
+                            <ul>
+                                <li><a href="/Building/Create">Add property information</a></li>
+                                <li><a href="/Building/Index">Edit property information</a></li>
+                                <li><a href="/House/Create">add Property information</a></li>
+                                <li><a href="/House/Index">Search Property Information</a></li>
+                                <li><a href="/Packing/Index">Car parking management</a></li>
+                            </ul>
+                        </li>
+                        <li class="active cm-submenu">
+                            <a class="sf-keyring">Property Management <span class="caret"></span></a>
+                            <ul>
+                                <li><a href="/Complaint/Index">Editing tenants' complaints</a></li>
+                                <li><a href="/Repair/Index">Editing of tenants' reports</a></li>
+                                <li><a href="/Device/Index">Item Management</a></li>
+                            </ul>
+                        </li>
+                        <li class="active cm-submenu">
+                            <a class="sf-tag-alt">Fee Management <span class="caret"></span></a>
+                            <ul>
+                                <li><a href="/UserPaymoney/Create">add fee</a></li>
+                                <li><a href="/UserPaymoney/Index">edit fee</a></li>
+                            </ul>
+                        </li> 
+                        <li class="active cm-submenu">
+                            <a class="sf-user-male">user management <span class="caret"></span></a>
+                            <ul>
+                                <li><a href="/User/Create">add tenant</a></li>
+                                <li><a href="/User/Index">edit tenant</a></li>
+                                <li><a href="/PropertyUser/Create">add</a></li>
+                                <li><a href="/PropertyUser/Index">Editorial Property Manager</a></li>
+                            </ul>
+                        </li>
+                        @if (Session["power"] != null && (int)Session["power"] == 3)
+                        {
+                        <li class="active cm-submenu">
+                            <a class="sf-cogs">system management<span class="caret"></span></a>
+                            <ul>
+                                <li><a href="/System/Index">system management</a></li>
+                                <li><a href="/Wadmin/Index">administor management</a></li>
+                            </ul>
+                        </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header id="cm-header">
+        <nav class="cm-navbar cm-navbar-primary">
+            <div class="btn btn-primary md-menu-white hidden-md hidden-lg" data-toggle="cm-menu"></div>
+            <div class="cm-flex">
+                <h1><a href="/Home/Index" style="color:#fff;">index page</a></h1>
+            </div>
+            <div class="dropdown pull-right">
+                <button class="btn btn-primary md-account-circle-white" data-toggle="dropdown"></button>
+                <ul class="dropdown-menu">
+                    <li class="disabled text-center">
+                        <a style="cursor:default;"><strong>@Session["nickname"]</strong></a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href='/Wadmin/Edit/@Session["id"]'><i class="fa fa-fw fa-user"></i>Modify personal information</a>
+                    </li>
+                    <li>
+                        <a href="/Login/logout"><i class="fa fa-fw fa-sign-out"></i> Quit</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!--  -->
+    <div id="global">
+        @RenderBody()
+    </div>
+    <!--  -->
+    <script src="~/Content/assets/js/lib/jquery.min.js"></script>
+    <script src="~/Content/assets/js/jquery.mousewheel.min.js"></script>
+    <script src="~/Content/assets/js/jquery.cookie.min.js"></script>
+    <script src="~/Content/assets/js/fastclick.min.js"></script>
+    <script src="~/Content/assets/js/bootstrap.min.js"></script>
+    <script src="~/Content/assets/js/clearmin.min.js"></script>
+    <script src="~/Content/assets/js/demo/home.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

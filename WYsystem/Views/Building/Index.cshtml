@@ -1,0 +1,97 @@
+﻿@model IEnumerable<WYsystem.Models.w_building>
+
+@{
+    ViewBag.Title = "Building Management";
+    Layout = "~/Views/Shared/_BackAdmin.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row cm-fix-height">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h2>Building Management</h2></div>
+                <div class="panel-body">
+                    <form action="" method="get">
+                        <div class="row">
+                            <div class="col-md-2" style="line-height:40px;">
+                                Search：
+                            </div>
+                            <div>
+                                <div class="col-sm-2">
+                                    <input name="keyword" class="form-control" placeholder="Enter key word">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="col-sm-1">
+                                    <input type="submit" class="btn btn-primary" value="Search" />
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                    <table class="table">
+                        <tr>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Number of floor
+                            </th>
+                            <th>
+                                High
+                            </th>
+                            <th>
+                                Area
+                            </th>
+                            <th>
+                                Construction time
+                            </th>
+                            <th>
+                                Discription
+                            </th>
+                            <th>
+                                type
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.room_name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.floors)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.height)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.area)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.createtime)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.remark)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.w_system_params.name)
+                                </td>
+                                <td>
+                                    <a href="/Building/Edit?id=@item.id" class="btn btn-info">Modify</a>
+                                    |
+                                    <a href="/Building/Details?id=@item.id" class="btn btn-success">More</a>
+                                    |
+                                    <a href="/Building/Delete?id=@item.id" class="btn btn-warning" onclick="return confirm('Delete this building？')">Delete</a>
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

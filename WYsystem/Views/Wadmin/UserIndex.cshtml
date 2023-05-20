@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WYsystem.Models.w_admin>
+
+@{
+    ViewBag.Title = "User Center";
+    Layout = "~/Views/Shared/_BackAdmin.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row cm-fix-height">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h2>User Center</h2></div>
+                <div class="panel-body">
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.username)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.nickname)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.createtime)
+                            </th>
+                            <th>Setting</th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.username)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.nickname)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.createtime)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Cange Password", "UserEdit", new { id = item.id }) |
+                                    <a href="/Wadmin/UserDelete/@item.id" onclick="return confirm('Do you want to delete?')">Delete</a>
+
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

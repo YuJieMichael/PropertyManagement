@@ -1,0 +1,73 @@
+﻿@model IEnumerable<WYsystem.Models.w_device>
+
+@{
+    Layout = "~/Views/Shared/_BackAdmin.cshtml";
+}
+<div class="container-fluid">
+    <div class="row cm-fix-height">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h2>Lost and Found</h2></div>
+                <div class="panel-body">
+                    <form action="/Device/Index" method="get">
+                        <div class="row">
+                            <div class="col-md-2" style="line-height:40px;">
+                                <a href="/Device/Create" class="btn btn-info">Product Name</a> Search：
+                            </div>
+                            <div>
+                                <div class="col-sm-2">
+                                    <input name="keyword" class="form-control" placeholder="search">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="col-sm-1">
+                                    <input type="submit" class="btn btn-primary" value="search" />
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                    <table class="table">
+                        <tr>
+                            <th>
+                                Product Id
+                            </th>
+                            <th>
+                                Product Name
+                            </th>
+                            <th>
+                                Description
+                            </th>
+                            <th>
+                                Time
+                            </th>
+                            <th>Search</th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.device_id)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.device_name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.device_desc)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.createtime)
+                                </td>
+                                <td>
+                                    <a href="/Device/Edit?id=@item.id" class="btn btn-success">Edit</a>  |
+                                    <a href="/Device/Delete?id=@item.id" class="btn btn-warning" onclick="return confirm('Do you want to delete？')">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                       </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

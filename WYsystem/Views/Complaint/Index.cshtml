@@ -1,0 +1,87 @@
+﻿@model IEnumerable<WYsystem.Models.w_complaint>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_BackAdmin.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row cm-fix-height">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h2>Complaint Management</h2></div>
+                <div class="panel-body">
+                    <table class="table">
+                        <tr>
+                            <th>
+                                Title
+                            </th>
+                            <th>
+                                Room Information
+                            </th>
+                            <th>
+                                Complainant
+                            </th>
+                            <th>
+                                Time
+                            </th>
+                            <th>
+                                Status
+                            </th>
+                            <th>Progress</th>
+                            <th>Delete</th>
+                            <th>Verify</th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.createtime)
+                        </td>
+                        <td>
+                            @if (item.state == "Processed")
+                            {
+                                <span style="color:red">Processed</span>
+                            }
+                            else if (item.state == "Unprocessed")
+                            {
+                                <span style="color:blue">Unprocessed</span>
+                            }
+                            else if (item.state == "Audited")
+                            {
+                                <span style="color:green">Audited</span>
+                            }
+                            else
+                            {
+                                <span style="color:purple">Unread</span>
+                            }
+                        </td>
+                        <td>
+                            <a href="/Complaint/Edit/@item.id" class="btn btn-success">Review</a>
+                        </td>
+                        <td>
+                            <a href="/Complaint/Delete?id=@item.id" class="btn btn-warning" onclick="return confirm('Do you want to delete？')">Delete</a>
+                        </td>
+                        <td>
+                            <a href="/Complaint/Edit2/@item.id" onclick="return confirm('Do you want to verify？')" class="btn btn-success">Verify</a>
+                        </td>
+                    </tr>
+                        }
+
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,96 @@
+﻿@model IEnumerable<WYsystem.Models.w_admin>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_BackAdmin.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row cm-fix-height">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h2>Admin</h2></div>
+                <div class="panel-body">
+                    <table class="table">
+                        <tr>
+                            <th>
+                                Admin
+                            </th>
+                            <th>
+                                Password
+                            </th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Time
+                            </th>
+                            <th>Setting</th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.username)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.pass)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.nickname)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.createtime)
+                                </td>
+                                <td>
+                                    <a href="/Wadmin/Edit/@item.id" class="btn btn-success">Change Password</a>
+                                    |
+                                    <a href="/Wadmin/DeleteConfirmed/@item.id" onclick="return confirm('Do you want to delete?')" class="btn btn-danger">Delete</a>
+
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                    <form action="/Wadmin/Create" style="margin-top:40px;" method="post">
+                        <table class="table">
+                            <tr>
+                                <td>Admin：</td>
+                                <td>
+                                    <input class="form-control" value="" name="username" required placeholder="admin" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Password：</td>
+                                <td>
+                                    <input class="form-control" value="" name="pass" required placeholder="password" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Name：</td>
+                                <td>
+                                    <input class="form-control" value="" name="nickname" required placeholder="name" />
+                                </td>
+                            </tr>
+                            <tr style="display:none;">
+                                <td>Power：</td>
+                                <td>
+                                    <select name="power" class="form-control">
+                                        <option value="1">Admin</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <input type="hidden" name="createtime" value='@DateTime.Now.ToString("yyyy-MM-dd")' />
+                            <tr>
+                                <td colspan="2" align="center">
+                                    <input type="submit" value="保存" class="btn btn-default" />
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

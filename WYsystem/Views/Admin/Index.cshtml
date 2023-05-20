@@ -1,0 +1,77 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_BackAdmin.cshtml";
+    ViewBag.Title = "Index";
+}
+
+<div class="container-fluid cm-container-white">
+    <h2 style="margin-top:0;">Introduction</h2>
+    <p>create by Yu Jie Xie / Si Yi Zhang</p>
+</div>
+<div class="container-fluid">
+    <div class="row cm-fix-height">
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">Community</div>
+                <div class="panel-body">
+                    <li><a href="/Admin/RoomIndex" style="text-align:center">Community Information</a></li>
+                    <li><a href="/Announcement/Create" style="text-align:center">Add Announcement</a></li>
+                    <li><a href="/Announcement/Index" style="text-align:center">Edit Announcement</a></li>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">Asset</div>
+                <div class="panel-body">
+                    <li><a href="/Building/Index">Building Information</a></li>
+                    <li><a href="/House/Index">Building Management</a></li>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">Property</div>
+                <div class="panel-body">
+                    <li><a href="/Complaint/Index">Complaint Management</a></li>
+                    <li><a href="/Repair/Index">Report Management</a></li>
+                    <li><a href="/User/Index">Tenants Information'</a></li>
+                    <li><a href="/PropertyUser/Index">Property Management</a></li>
+                </div>
+            </div>
+        </div>
+    </div><div class="row cm-fix-height">
+    <div class="col-sm-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">Payment</div>
+            <div class="panel-body">
+                <li><a href="/UserPaymoney/Create">Add Charges</a></li>
+                <li><a href="/UserPaymoney/Index">Fee Management</a></li>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">Users</div>
+            <div class="panel-body">
+                <li><a href="/User/Index">User List</a></li>
+            </div>
+        </div>
+    </div>
+    @if (Session["power"] != null && (int)Session["power"] == 3)
+    {
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">System Management</div>
+                <div class="panel-body">
+                    <li><a href="/System/Index">System Parameter</a></li>
+                    <li><a href="/Wadmin/Index">Administrator Management</a>++
+                    </li>
+                </div>
+            </div>
+        </div>
+    }
+    </div>
+<div class="row cm-fix-height">
+    </div>
+    </div>

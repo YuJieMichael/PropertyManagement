@@ -1,0 +1,318 @@
+﻿@using WYsystem.Models
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    @* /Content/Owner/Index/ *@
+    <link rel="stylesheet" type="text/css" href="/Content/Owner/Index/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/Content/Owner/Index/css/nprogress.css">
+    <link rel="stylesheet" type="text/css" href="/Content/Owner/Index/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/Content/Owner/Index/css/font-awesome.min.css">
+    <script src="/Content/Owner/Index/js/jquery-2.1.4.min.js"></script>
+    <script src="/Content/Owner/Index/js/nprogress.js"></script>
+    <script src="/Content/Owner/Index/js/jquery.lazyload.min.js"></script>
+
+    <style>
+        .contentBox {
+            margin-top: 20px;
+        }
+        /*Icon*/
+    </style>
+</head>
+
+<body class="user-select">
+    <header class="header">
+        <nav class="navbar navbar-default" id="navbar">
+            <div class="container">
+                <div class="navbar-header">
+                    <!-- logo -->
+                    <h1 class="logo hvr-bounce-in">
+                        <a href="" title=""></a>
+                    </h1>
+                </div>
+                <div class="collapse navbar-collapse" id="header-navbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="hidden-index active"><a data-cont="" href="/Home/Index">Home</a></li>
+                        <li><a href="/Home/WyNotice">Announcement</a></li>
+                        <li><a href="/Home/WyInstallation">Surrounding</a></li>
+                        <li><a href="/Home/WyProUser">Employees</a></li>
+                        @*<li><a href="/Home/Detail">Introduction</a></li>
+        <li><a href="#">About Us</a></li>*@
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section class="container">
+        <div class="content-wrap">
+            <div class="content">
+                <!-- pictures -->
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <img src="~/Content/Owner/Index/img/banner1.png" />
+                        </div>
+                        <div class="item">
+                            <img src="~/Content/Owner/Index/img/banner2.png" />
+                        </div>
+                        <div class="item">
+                            <img src="~/Content/Owner/Index/img/banner3.png" />
+                        </div>
+                    </div>
+                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <!-- Announcement -->
+                <div class="contentBox">
+                    <div class="title">
+                        <h3>Announcement</h3>
+                        <div class="more"><a href="/Home/WyNotice" title="Learn more">Learn more<i class="glyphicon glyphicon-circle-arrow-right"></i></a></div>
+                    </div>
+                    @foreach (var item in ViewBag.announcement)
+                    {
+                        <article class="excerpt excerpt-1">
+                            <a class="focus" href="/Home/WyNoticeDetail?id=@item.id" title=""><img class="thumb" data-original="" src="~/Content/img/gonggao.jpg" alt=""></a>
+                            <header>
+                                <a class="cat" href="program">Pinned<i></i></a>
+                                <h2><a href="/Home/WyNoticeDetail?id=@item.id" title="">@item.title</a></h2>
+                            </header>
+                            <p class="meta">
+                                <i class="glyphicon glyphicon-time"></i> @item.createtime
+                            </p>
+                            <p class="note">
+                                <i class="glyphicon glyphicon-bullhorn"></i>&nbsp;Announcement：@item.contents
+                            </p>
+                        </article>
+                    }
+                </div>
+
+                <div class="contentBox">
+                    <div class="title">
+                        <h3>Surrounding</h3>
+                        <div class="more"><a href="/Home/WyInstallation" title="Learn more">Learn more<i class="glyphicon glyphicon-circle-arrow-right"></i></a></div>
+                    </div>
+                    @foreach (var item in ViewBag.zbInfo)
+                    {
+                        <article class="excerpt excerpt-1">
+                            <a class="focus" href="/Home/WyInstallationDetail?id=@item.id" title=""><img class="thumb" data-original="" src="~/Content/img/jiudian.jpg" alt=""></a>
+                            <header>
+                                <a class="cat" href="program">Recommend<i></i></a>
+                                <h2><a href="/Home/WyInstallationDetail?id=@item.id" title="">@item.title</a></h2>
+                            </header>
+                            <p class="meta">
+                                <i class="glyphicon glyphicon-home"></i>&nbsp;Type： @item.w_system_params.name
+                            </p>
+                            <p class="meta">
+                                <i class="glyphicon glyphicon-user"></i>&nbsp;Name： @item.name
+                            </p>
+                            <p class="meta">
+                                <i class="glyphicon glyphicon-phone"></i>&nbsp;Phone： @item.phone
+                            </p>
+                            <p class="note">
+                                <i class="glyphicon glyphicon-file"></i>&nbsp;Description：@item.contents
+                            </p>
+                        </article>
+                    }
+                </div>
+
+                <div class="contentBox" id="proUser">
+                    <div class="title">
+                        <h3>Employees</h3>
+                        <div class="more"><a href="/Home/WyProUser/Index" title="Learn more">Learn more<i class="glyphicon glyphicon-circle-arrow-right"></i></a></div>
+                    </div>
+                    @foreach (var item in ViewBag.proUser)
+                    {
+                        <article class="excerpt excerpt-1">
+                            <a class="focus" href="/Home/WyProUser/Index" title=""><img class="thumb" data-original="" src="@item.pic" alt=""></a>
+                            <header>
+                                <a class="cat" href="program">@item.work_name<i></i></a>
+                                <h2><a href="/Home/WyProUser/Index" title="">@item.name</a></h2>
+                            </header>
+                            <p class="meta">
+                                <i class="glyphicon glyphicon-star"></i> gender：@(item.sex == 0 ? "female":"male")
+                            </p>
+                            <p class="note">
+                                <i class="glyphicon glyphicon-heart"> hobbies：@item.work_info</i>
+                            </p>
+                        </article>
+                    }
+                </div>
+            </div>
+        </div>
+        <aside class="sidebar">
+            <div class="fixed">
+                <div class="widget widget-tabs">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#centre" aria-controls="centre" role="tab" data-toggle="tab">User Center</a></li>
+                        <li role="presentation"><a href="#notice" aria-controls="notice" role="tab" data-toggle="tab">Announcements</a></li>
+
+                        <li role="presentation">
+                            <a href="#contact" aria-controls="contact" role="tab" data-toggle="tab">Contact Us</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        @if (Session["User"] == null)
+                        {
+                            <!-- User Center -->
+                            <div role="tabpanel" class="tab-pane centre active" id="centre">
+                                <h4>Pleace Login.</h4>
+                                <p>
+                                    <a data-toggle="modal" data-target="#loginModal" class="btn btn-primary">Login</a>
+                                </p>
+                            </div>
+                        }
+                        else
+                        {
+                            <div role="tabpanel" class="tab-pane contact active" id="centre">
+                                <h2>Welcome，@((Session["User"] as w_user).user_name)</h2>
+                                <h2><a href="/BackUser/Index" target="_blank" style="color: lightskyblue;text-decoration:underline">Personal Center</a></h2>
+                                <div class="col-md-4"></div>
+                                <div class="col-md-8"><a href="/Home/logout"><button class="btn btn-danger">Logout</button></a></div>
+                                <div class="col-md-4"></div>
+                            </div>
+                        }
+                        <!-- Welcome -->
+                        <div role="tabpanel" class="tab-pane notice" id="notice">
+                            <ul>
+                                <li>
+                                    <time>@DateTime.Now.ToString("yyyy-MM-dd")</time>
+                                    <a href="/">Welcome to our website.</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Contact Us -->
+                        <div role="tabpanel" class="tab-pane contact" id="contact">
+                            @foreach (var item in ViewBag.ContactWuye)
+                            {
+                                <h2>Employee：@item.name</h2>
+                                <h2>Phono：@item.phone</h2>
+                                <h2>Address：@item.address</h2>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="widget widget_sentence" id="buildingInfo">
+                <a href="#" title="Learn more"><h3>Learn more about building information</h3></a>
+                <div class="widget-sentence-content">
+                    @foreach (var item in ViewBag.buildingInfo)
+                    {
+                        <ul>
+                            <li>Building：@item.room_name</li>
+                            <li>Floors：@item.floors| @item.w_system_params.name</li>
+                            <li>Height：@item.height</li>
+                            <li>Area：@item.area </li>
+                            <li>Description：@item.remark</li>
+                        </ul>
+                    }
+                </div>
+            </div>
+
+            <div class="widget widget_sentence">
+                <h3>Introduction</h3>
+                <div class="widget-sentence-content">
+                    <p>This a fantastic community in Montreal for you and your family. </p>
+                </div>
+            </div>
+        </aside>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <p>Building Stack <a href="/Login/Index" style="color:blue;">Login as Manager</a></p>
+        </div>
+        <div id="gotop">
+            <a class="gotop"></a>
+        </div>
+    </footer>
+    <!--Login / Signup-->
+    <div class="modal fade user-select" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">Login</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="loginModalUserNmae">username</label>
+                        <input type="text" class="form-control" id="username" placeholder="username" autofocus maxlength="15" autocomplete="off" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginModalUserPwd">password</label>
+                        <input type="password" class="form-control" id="password" placeholder="password" maxlength="18" autocomplete="off" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <span style="color:red;float:left;font-size:16px;padding-left:15px" id="errorMsg">@ViewBag.notice</span>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="btnLogin">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/Content/Owner/Index/js/bootstrap.min.js"></script>
+    <script src="/Content/Owner/Index/js/jquery.ias.js"></script>
+    <script src="/Content/Owner/Index/js/scripts.js"></script>
+    <script>
+        $("#btnLogin").click(function () {
+            //frount
+            var username = $('#username').val().trim();
+            var password = $('#password').val().trim();
+            if (username.length < 1) {
+                $('#errorMsg').innerText = 'Username can not be empty！';
+                return;
+            }
+            if (password.length < 1) {
+                $('#errorMsg').innerText = 'Password can not be empty！';
+                return;
+            }
+            $.ajax({
+                url: '/Home/Index',
+                type: 'Post',
+                data: {
+                    //value and key
+                    username: username,
+                    password: password,
+                },
+                success: function (data) {
+                    if (data == "OK") {
+                        $("#loginModal").modal('hide');
+                        window.location.href = '/Home/Index';
+                        return;
+                    }
+                    if (data == "UserNull") {
+                        document.getElementById('errorMsg').innerText = 'User is not available！';
+                        return;
+                    }
+                    if (data == "PassError") {
+                        document.getElementById('errorMsg').innerText = 'Password is not available！';
+                        return;
+                    }
+                },
+                error: function () {
+                    document.getElementById('errorMsg').innerText = 'Error！ Please try again!';
+                }
+            })
+        });
+    </script>
+</body>
+
+</html>

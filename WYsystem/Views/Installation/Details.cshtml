@@ -1,0 +1,59 @@
+﻿@model WYsystem.Models.w_installation
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_BackAdmin.cshtml";
+}
+
+<h2>Surrounding Details</h2>
+
+<div>
+    <h4>Installation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.main_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.main_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contents)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contents)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.w_system_params.code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.w_system_params.code)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

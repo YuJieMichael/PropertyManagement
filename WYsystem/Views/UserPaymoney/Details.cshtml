@@ -1,0 +1,91 @@
+﻿@model WYsystem.Models.w_user_paymoney
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_BackAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>w_user_paymoney</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.should_pay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.should_pay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.realy_pay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.realy_pay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.no_pay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.no_pay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.start_pay_time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.start_pay_time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.w_admin.username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.w_admin.username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.w_house.title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.w_house.title)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,81 @@
+﻿@model IEnumerable<WYsystem.Models.w_repair>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_BackAdmin.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row cm-fix-height">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h2>Repair Management</h2></div>
+                <div class="panel-body">
+                    <table class="table">
+                        <tr>
+                            <th>
+                                Content
+                            </th>
+                            <th>
+                                Unit
+                            </th>
+                            <th>
+                                Date
+                            </th>
+                            <th>
+                                Result
+                            </th>
+                            <th>Repair Progcess</th>
+                            <th>Delete</th>
+                            <th>Verify</th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.title)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.w_house.title)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.createtime)
+                                </td>
+                               
+                                <td>
+                                    @if (item.state == 2)
+                                    {
+                                        <span style="color:red">Processed</span>
+                                    }
+                                    else if (item.state == 3)
+                                    {
+                                        <span style="color:blue">Unprocess</span>
+                                    }
+                                    else if (item.state == 1)
+                                    {
+                                        <span style="color:green">Audited</span>
+                                    }
+                                    else
+                                    {
+                                        <span style="color:yellow">Unread</span>
+                                    }
+                                </td>
+                                <td>
+                                    <a href="/Repair/Edit/@item.id" class="btn btn-success">Repair</a>
+                                </td>
+                                <td>
+                                    <a href="/Repair/Delete?id=@item.id" class="btn btn-warning" onclick="return confirm('Do you want to delete？')">Delete</a>
+                                </td>
+                                <td>
+                                    <a href="/Repair/Edit2/@item.id" onclick="return confirm('Do you want to Verify？')" class="btn btn-success">Verify</a>
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

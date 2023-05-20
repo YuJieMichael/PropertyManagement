@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "Community Management - Add";
+    Layout = "~/Views/Shared/_BackAdmin.cshtml";
+}
+<div class="container-fluid">
+    <div class="row cm-fix-height">
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3>Add Cell Information</h3>
+                    <form action="/Admin/AddRoom" method="post" onsubmit="return checkForm()">
+                    <table class="table table-bordered" style="margin-top:10px;">
+                       <tr>
+                                <th>Name</th>
+                                <td>
+                                    <input type="text" name="name" value="" class="form-control" placeholder="Community Name" />
+                                </td>
+                                <th>Phone</th>
+                                <td>
+                                    <input type="text" name="phone" value="" class="form-control" placeholder="Phone Number" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Directors</th>
+                                <td>
+                                    <input type="text" name="link_name" value="" class="form-control" placeholder="Director Name" />
+                                </td>
+                                <th>Parking Area</th>
+                                <td>
+                                    <input type="text" name="stop_car_area" value="" class="form-control" placeholder="Parking Area" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Construct Date</th>
+                                <td>
+                                    <input type="text" name="construct_date" value="" class="form-control" placeholder="Construct Date" />
+                                </td>
+                                <th>Road Area</th>
+                                <td>
+                                    <input type="text" name="road_area" value="" class="form-control" placeholder="Road Area" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Building Area</th>
+                                <td>
+                                    <input type="text" name="room_area" value="" class="form-control" placeholder="Building Area" />
+                                </td>
+                                <th>Green Area</th>
+                                <td>
+                                    <input type="text" name="lh_area" value="" class="form-control" placeholder="Green area" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Number of Buildings</th>
+                                <td>
+                                    <input type="text" name="room_number" value="" class="form-control" placeholder="Amont of Buildings" />
+                                </td>
+                                <th>Address</th>
+                                <<td>
+                                    <input type="text" name="address" value="" class="form-control" placeholder="Address" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Discription</th>
+                                <<td colspan="3">
+                                    <input type="text" name="remark" value="" class="form-control" placeholder="Discription" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th colspan="4" style="text-align:center;">
+                                    <input type="submit"  class=" btn-default" value="Add" />
+                                    <input type="button" class=" btn-default" onclick="javascript: window.history.back();" value="Cancel" />
+                                    <h3 style="color:red;">@ViewBag.notice</h3>
+                                </th>
+                            </tr>
+                    </table>
+                   </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function checkForm()
+    {
+        if ($('[name="name"]').val().length < 1)
+        {
+            alert("Enter name please");
+            $('[name="name"]').focus();
+            return false;
+        }
+        if ($('[name="phone"]').val().length < 1) {
+            alert("Please enter the phone number");
+            $('[name="name"]').focus();
+            return false;
+        }
+        if ($('[name="address"]').val().length < 1) {
+            alert("please enter the address");
+            $('[name="name"]').focus();
+            return false;
+        }
+    }
+</script>

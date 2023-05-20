@@ -1,0 +1,88 @@
+﻿@model WYsystem.Models.w_packing
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Do you want to delete this?</h3>
+    <div>
+        <h4>Parking</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.packing_name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.packing_name)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.packing_lot)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.packing_lot)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.packing_lotID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.packing_lotID)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.packing_state)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.packing_state)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.packing_type)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.packing_type)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.packing_area)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.packing_area)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.w_user.user_name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.w_user.user_name)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>

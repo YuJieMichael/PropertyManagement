@@ -1,0 +1,89 @@
+﻿@model IEnumerable<WYsystem.Models.w_property_user>
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Employees</title>
+    <link rel="stylesheet" type="text/css" href="/Content/Owner/Index/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/Content/Owner/Index/css/nprogress.css">
+    <link rel="stylesheet" type="text/css" href="/Content/Owner/Index/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/Content/Owner/Index/css/font-awesome.min.css">
+    <script src="/Content/Owner/Index/js/jquery-2.1.4.min.js"></script>
+    <script src="/Content/Owner/Index/js/nprogress.js"></script>
+    <script src="/Content/Owner/Index/js/jquery.lazyload.min.js"></script>
+</head>
+
+<body class="user-select single">
+    <header class="header">
+        <nav class="navbar navbar-default" id="navbar">
+            <div class="container">
+                <div class="navbar-header">
+                    <!-- logo -->
+                    <h1 class="logo hvr-bounce-in"><a href="" title=""></a></h1>
+                </div>
+                <div class="collapse navbar-collapse" id="header-navbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="hidden-index active"><a data-cont="" href="/Home/Index">Home</a></li>
+                        <li><a href="/Home/WyNotice">Announcement</a></li>
+                        <li><a href="/Home/WyInstallation">Surrounding</a></li>
+                        <li><a href="/Home/WyProUser">Employees</a></li>
+                        @*<li><a href="/Home/Detail">Introduction</a></li>
+                          <li><a href="#">About Us</a></li>*@
+                    </ul>
+                    </div>
+                </div>
+</nav>
+    </header>
+    <section class="container">
+        <div class="content-wrap">
+            <div class="content" style="width: 100%;">
+                <header class="article-header">
+                    <h1 class="article-title">Employees</h1>
+                </header>
+                <article class="article-content">
+                    <table class="table table-bordered table-hover">
+                        <tr class="active">
+                            <td>Id</td>
+                            <td>Name</td>
+                            <td>Photo</td>
+                            <td>Gender</td>
+                            <td>Job</td>
+                            <td>Phone</td>
+                            <td>Description</td>
+                        </tr>
+                        @foreach (var item in Model)
+                        {
+                    <tr>
+                        <td>@item.id</td>
+                        <td>@item.name</td>
+                        <td>
+                            <img class="thumb"
+                                 data-original="" src="@item.pic" width="50" height="50" alt="">
+                        </td>
+                        <td>@(item.sex == 0? "female":"male")</td>
+                        <td>@item.work_name</td>
+                        <td>@item.phone</td>
+                        <td>@item.work_info</td>
+                    </tr>
+                        }
+                    </table>
+                </article>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <p>Building Stack <a href="/Login/Index" style="color:blue;">Login as Manager</a></p>
+        </div>
+        <div id="gotop"><a class="gotop"></a></div>
+    </footer>
+    <script src="/Content/Owner/Index/js/bootstrap.min.js"></script>
+    <script src="/Content/Owner/Index/js/jquery.ias.js"></script>
+    <script src="/Content/Owner/Index/js/scripts.js"></script>
+</body>
+
+</html>

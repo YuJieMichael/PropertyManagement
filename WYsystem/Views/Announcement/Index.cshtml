@@ -1,0 +1,78 @@
+﻿@model IEnumerable<WYsystem.Models.w_announcement>
+
+@{
+    ViewBag.Title = "Community Information";
+    Layout = "~/Views/Shared/_BackAdmin.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row cm-fix-height">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h2>Community Information</h2></div>
+                <div class="panel-body">
+                    <form action="" method="get">
+                        <div class="row">
+                            <div class="col-md-2" style="line-height:40px;">
+                                Search key word：
+                            </div>
+                            <div>
+                                <div class="col-sm-2">
+                                    <input name="keyword" class="form-control" placeholder="enter key word">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="col-sm-1">
+                                    <input type="submit" class="btn btn-primary" value="search" />
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </form>
+                    <table class="table">
+                        <tr>
+                            <th>
+                                Announcement ID
+                            </th>
+                            <th>
+                                Annoucement title
+                            </th>
+                            <th>
+                                Publish date
+                            </th>
+                            <th>
+                                Publisher
+                            </th>
+                            <th>Setting</th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.number)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.title)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.createtime)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.nickname)
+                                </td>
+                                <td>
+                                    <a href="/Announcement/Edit?id=@item.id" class="btn btn-success" >Modify</a> 
+                                    |
+                                    <a href="/Announcement/Delete?id=@item.id" class="btn btn-warning" onclick="return confirm('Delete this annoucement？')">Delete</a>
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

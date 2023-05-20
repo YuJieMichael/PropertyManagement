@@ -1,0 +1,167 @@
+﻿@model WYsystem.Models.w_repair
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_BackAdmin.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row cm-fix-height">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading" style="margin-bottom:20px"><h2>Repair Infomation</h2></div>
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.id)
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">
+                        Title：
+                    </label>
+                    <div class="col-md-10">
+                        <div style="line-height:35px;">@Model.title</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">
+                        Time：
+                    </label>
+                    <div class="col-md-10">
+                        <div style="line-height:35px;">@Model.createtime</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">
+                        description：
+                    </label>
+                    <div class="col-md-10">
+                        <div style="line-height:35px;">@Model.describe</div>
+                    </div>
+                </div>
+                <hr />
+                <h2>Result：</h2>
+                <div class="form-group">
+                    <label class="control-label col-md-2">
+                        Processer:
+                    </label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.finaly_repair_user, new { htmlAttributes = new { @class = "form-control",@placeholder="processer" } })
+                        @Html.ValidationMessageFor(model => model.finaly_repair_user, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2">
+                        Company：
+                    </label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.repair_work_info, new { htmlAttributes = new { @class = "form-control", @placeholder = "company name" } })
+                        @Html.ValidationMessageFor(model => model.repair_work_info, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2">
+                        Principal：
+                    </label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.main_repair_user, new { htmlAttributes = new { @class = "form-control", @placeholder = "pricipal" } })
+                        @Html.ValidationMessageFor(model => model.main_repair_user, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2">
+                        Phone：
+                    </label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.repair_phone, new { htmlAttributes = new { @class = "form-control", @placeholder = "phone" } })
+                        @Html.ValidationMessageFor(model => model.repair_phone, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2">
+                        Verify：
+                    </label>
+                    <div class="col-md-10">
+                        <select name="state" class="form-control">
+                            @if (Model.state == 0)
+                            {
+                                <option value="0">Unread</option>
+                                <option value="1">Audited</option>
+                                <option value="2">Processed</option>
+                                <option value="3">Unprocessed</option>
+                            }
+                            else if (Model.state == 1)
+                            {
+
+                                <option value="1">Audited</option>
+                                <option value="0">Unread</option>
+                                <option value="2">Processed</option>
+                                <option value="3">Unprocessed</option>
+                            }
+                            else if (Model.state == 2)
+                            {
+                                <option value="2">Processed</option>
+                                <option value="1">Audited</option>
+                                <option value="0">Unread</option>
+                                <option value="3">Unprocessed</option>
+                            }
+                            else
+                            {
+                                <option value="3">Unprocessed</option>
+                                <option value="1">Audited</option>
+                                <option value="0">Unread</option>
+                                <option value="2">Processed</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2">
+                        Comments：
+                    </label>
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.pass_detail, 3, 0, new { @class = "form-control", @placeholder = "comments" })
+                        @Html.ValidationMessageFor(model => model.pass_detail, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                
+                
+                @if (Model.state != 2) {
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Reuslt" class="btn btn-default" />
+                        </div>
+                    </div>
+                }else{
+                    <h4 align="center">Processed</h4>
+                    <div align="center" style="margin-bottom:20px;"><a href="/Complaint/Index" class="btn btn-default">Back</a></div>
+                }
+
+                <hr />
+                <h3 align="center">Review</h3>
+                <div class="form-group">
+                    <label class="control-label col-md-2">
+                        Review：
+                    </label>
+                    <div class="col-md-10">
+                        <div style="line-height:35px;">@Model.repair_info</div>
+                    </div>
+                </div>
+            </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

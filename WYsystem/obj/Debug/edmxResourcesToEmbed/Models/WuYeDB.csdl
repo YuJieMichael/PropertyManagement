@@ -1,0 +1,630 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WuyeProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="wyEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="w_admin" EntityType="WuyeProjectModel.w_admin" />
+    <EntitySet Name="w_announcement" EntityType="WuyeProjectModel.w_announcement" />
+    <AssociationSet Name="FK_w_announcement_w_admin" Association="WuyeProjectModel.FK_w_announcement_w_admin">
+      <End Role="w_admin" EntitySet="w_admin" />
+      <End Role="w_announcement" EntitySet="w_announcement" />
+    </AssociationSet>
+    <EntitySet Name="w_room_info" EntityType="WuyeProjectModel.w_room_info" />
+    <EntitySet Name="w_system_params" EntityType="WuyeProjectModel.w_system_params" />
+    <EntitySet Name="w_installation" EntityType="WuyeProjectModel.w_installation" />
+    <AssociationSet Name="FK_w_installation_w_installation" Association="WuyeProjectModel.FK_w_installation_w_installation">
+      <End Role="w_system_params" EntitySet="w_system_params" />
+      <End Role="w_installation" EntitySet="w_installation" />
+    </AssociationSet>
+    <EntitySet Name="w_building" EntityType="WuyeProjectModel.w_building" />
+    <AssociationSet Name="FK_w_building_w_building" Association="WuyeProjectModel.FK_w_building_w_building">
+      <End Role="w_system_params" EntitySet="w_system_params" />
+      <End Role="w_building" EntitySet="w_building" />
+    </AssociationSet>
+    <EntitySet Name="w_house" EntityType="WuyeProjectModel.w_house" />
+    <AssociationSet Name="FK_w_house_w_building" Association="WuyeProjectModel.FK_w_house_w_building">
+      <End Role="w_building" EntitySet="w_building" />
+      <End Role="w_house" EntitySet="w_house" />
+    </AssociationSet>
+    <AssociationSet Name="FK_w_house_w_system_params" Association="WuyeProjectModel.FK_w_house_w_system_params">
+      <End Role="w_system_params" EntitySet="w_system_params" />
+      <End Role="w_house" EntitySet="w_house" />
+    </AssociationSet>
+    <AssociationSet Name="FK_w_house_w_system_params1" Association="WuyeProjectModel.FK_w_house_w_system_params1">
+      <End Role="w_system_params" EntitySet="w_system_params" />
+      <End Role="w_house" EntitySet="w_house" />
+    </AssociationSet>
+    <AssociationSet Name="FK_w_house_w_system_params2" Association="WuyeProjectModel.FK_w_house_w_system_params2">
+      <End Role="w_system_params" EntitySet="w_system_params" />
+      <End Role="w_house" EntitySet="w_house" />
+    </AssociationSet>
+    <AssociationSet Name="FK_w_house_w_system_params3" Association="WuyeProjectModel.FK_w_house_w_system_params3">
+      <End Role="w_system_params" EntitySet="w_system_params" />
+      <End Role="w_house" EntitySet="w_house" />
+    </AssociationSet>
+    <AssociationSet Name="FK_w_house_w_system_params4" Association="WuyeProjectModel.FK_w_house_w_system_params4">
+      <End Role="w_system_params" EntitySet="w_system_params" />
+      <End Role="w_house" EntitySet="w_house" />
+    </AssociationSet>
+    <AssociationSet Name="FK_w_house_w_system_params5" Association="WuyeProjectModel.FK_w_house_w_system_params5">
+      <End Role="w_system_params" EntitySet="w_system_params" />
+      <End Role="w_house" EntitySet="w_house" />
+    </AssociationSet>
+    <EntitySet Name="w_complaint" EntityType="WuyeProjectModel.w_complaint" />
+    <EntitySet Name="w_property_user" EntityType="WuyeProjectModel.w_property_user" />
+    <EntitySet Name="w_repair" EntityType="WuyeProjectModel.w_repair" />
+    <EntitySet Name="w_room" EntityType="WuyeProjectModel.w_room" />
+    <EntitySet Name="w_user" EntityType="WuyeProjectModel.w_user" />
+    <EntitySet Name="w_user_paymoney" EntityType="WuyeProjectModel.w_user_paymoney" />
+    <AssociationSet Name="FK_w_user_paymoney_w_admin" Association="WuyeProjectModel.FK_w_user_paymoney_w_admin">
+      <End Role="w_admin" EntitySet="w_admin" />
+      <End Role="w_user_paymoney" EntitySet="w_user_paymoney" />
+    </AssociationSet>
+    <AssociationSet Name="FK_w_repair_w_building" Association="WuyeProjectModel.FK_w_repair_w_building">
+      <End Role="w_building" EntitySet="w_building" />
+      <End Role="w_repair" EntitySet="w_repair" />
+    </AssociationSet>
+    <AssociationSet Name="FK_w_user_w_building" Association="WuyeProjectModel.FK_w_user_w_building">
+      <End Role="w_building" EntitySet="w_building" />
+      <End Role="w_user" EntitySet="w_user" />
+    </AssociationSet>
+    <AssociationSet Name="FK_w_repair_w_house" Association="WuyeProjectModel.FK_w_repair_w_house">
+      <End Role="w_house" EntitySet="w_house" />
+      <End Role="w_repair" EntitySet="w_repair" />
+    </AssociationSet>
+    <AssociationSet Name="FK_w_user_paymoney_w_house" Association="WuyeProjectModel.FK_w_user_paymoney_w_house">
+      <End Role="w_house" EntitySet="w_house" />
+      <End Role="w_user_paymoney" EntitySet="w_user_paymoney" />
+    </AssociationSet>
+    <AssociationSet Name="FK_w_user_w_house" Association="WuyeProjectModel.FK_w_user_w_house">
+      <End Role="w_house" EntitySet="w_house" />
+      <End Role="w_user" EntitySet="w_user" />
+    </AssociationSet>
+    <AssociationSet Name="FK_w_repair_w_system_params" Association="WuyeProjectModel.FK_w_repair_w_system_params">
+      <End Role="w_system_params" EntitySet="w_system_params" />
+      <End Role="w_repair" EntitySet="w_repair" />
+    </AssociationSet>
+    <AssociationSet Name="FK_w_repair_w_user" Association="WuyeProjectModel.FK_w_repair_w_user">
+      <End Role="w_user" EntitySet="w_user" />
+      <End Role="w_repair" EntitySet="w_repair" />
+    </AssociationSet>
+    <AssociationSet Name="FK_w_user_w_system_params" Association="WuyeProjectModel.FK_w_user_w_system_params">
+      <End Role="w_system_params" EntitySet="w_system_params" />
+      <End Role="w_user" EntitySet="w_user" />
+    </AssociationSet>
+    <EntitySet Name="sysdiagrams" EntityType="WuyeProjectModel.sysdiagrams" />
+    <AssociationSet Name="FK_w_complaint_w_house" Association="WuyeProjectModel.FK_w_complaint_w_house">
+      <End Role="w_house" EntitySet="w_house" />
+      <End Role="w_complaint" EntitySet="w_complaint" />
+    </AssociationSet>
+    <EntitySet Name="w_device" EntityType="WuyeProjectModel.w_device" />
+    <EntitySet Name="w_packing" EntityType="WuyeProjectModel.w_packing" />
+    <AssociationSet Name="FK_w_packing_w_packing" Association="WuyeProjectModel.FK_w_packing_w_packing">
+      <End Role="w_user" EntitySet="w_user" />
+      <End Role="w_packing" EntitySet="w_packing" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="w_admin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="pass" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="nickname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="power" Type="Int32" />
+    <Property Name="createtime" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="w_announcement" Relationship="WuyeProjectModel.FK_w_announcement_w_admin" FromRole="w_admin" ToRole="w_announcement" />
+    <NavigationProperty Name="w_user_paymoney" Relationship="WuyeProjectModel.FK_w_user_paymoney_w_admin" FromRole="w_admin" ToRole="w_user_paymoney" />
+  </EntityType>
+  <EntityType Name="w_announcement">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="createtime" Type="DateTime" Precision="0" />
+    <Property Name="contents" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="uid" Type="Int32" />
+    <Property Name="nickname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="w_admin" Relationship="WuyeProjectModel.FK_w_announcement_w_admin" FromRole="w_announcement" ToRole="w_admin" />
+  </EntityType>
+  <Association Name="FK_w_announcement_w_admin">
+    <End Type="WuyeProjectModel.w_admin" Role="w_admin" Multiplicity="0..1" />
+    <End Type="WuyeProjectModel.w_announcement" Role="w_announcement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_admin">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_announcement">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="w_room_info">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="link_name" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="stop_car_area" Type="Int32" />
+    <Property Name="construct_date" Type="DateTime" Precision="0" />
+    <Property Name="road_area" Type="Int32" />
+    <Property Name="room_area" Type="Int32" />
+    <Property Name="lh_area" Type="Int32" />
+    <Property Name="room_number" Type="Int32" />
+    <Property Name="address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="remark" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="w_system_params">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="code" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="w_installation" Relationship="WuyeProjectModel.FK_w_installation_w_installation" FromRole="w_system_params" ToRole="w_installation" />
+    <NavigationProperty Name="w_building" Relationship="WuyeProjectModel.FK_w_building_w_building" FromRole="w_system_params" ToRole="w_building" />
+    <NavigationProperty Name="w_house" Relationship="WuyeProjectModel.FK_w_house_w_system_params" FromRole="w_system_params" ToRole="w_house" />
+    <NavigationProperty Name="w_house1" Relationship="WuyeProjectModel.FK_w_house_w_system_params1" FromRole="w_system_params" ToRole="w_house" />
+    <NavigationProperty Name="w_house2" Relationship="WuyeProjectModel.FK_w_house_w_system_params2" FromRole="w_system_params" ToRole="w_house" />
+    <NavigationProperty Name="w_house3" Relationship="WuyeProjectModel.FK_w_house_w_system_params3" FromRole="w_system_params" ToRole="w_house" />
+    <NavigationProperty Name="w_house4" Relationship="WuyeProjectModel.FK_w_house_w_system_params4" FromRole="w_system_params" ToRole="w_house" />
+    <NavigationProperty Name="w_house5" Relationship="WuyeProjectModel.FK_w_house_w_system_params5" FromRole="w_system_params" ToRole="w_house" />
+    <NavigationProperty Name="w_repair" Relationship="WuyeProjectModel.FK_w_repair_w_system_params" FromRole="w_system_params" ToRole="w_repair" />
+    <NavigationProperty Name="w_user" Relationship="WuyeProjectModel.FK_w_user_w_system_params" FromRole="w_system_params" ToRole="w_user" />
+  </EntityType>
+  <EntityType Name="w_installation">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sp_id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="main_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="contents" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="w_system_params" Relationship="WuyeProjectModel.FK_w_installation_w_installation" FromRole="w_installation" ToRole="w_system_params" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_w_installation_w_installation">
+    <End Type="WuyeProjectModel.w_system_params" Role="w_system_params" Multiplicity="1" />
+    <End Type="WuyeProjectModel.w_installation" Role="w_installation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_system_params">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_installation">
+        <PropertyRef Name="sp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="w_building">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="room_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="floors" Type="Int32" />
+    <Property Name="height" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="area" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="createtime" Type="DateTime" Precision="0" />
+    <Property Name="sp_id" Type="Int32" />
+    <Property Name="remark" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="w_system_params" Relationship="WuyeProjectModel.FK_w_building_w_building" FromRole="w_building" ToRole="w_system_params" />
+    <NavigationProperty Name="w_house" Relationship="WuyeProjectModel.FK_w_house_w_building" FromRole="w_building" ToRole="w_house" />
+    <NavigationProperty Name="w_repair" Relationship="WuyeProjectModel.FK_w_repair_w_building" FromRole="w_building" ToRole="w_repair" />
+    <NavigationProperty Name="w_user" Relationship="WuyeProjectModel.FK_w_user_w_building" FromRole="w_building" ToRole="w_user" />
+  </EntityType>
+  <Association Name="FK_w_building_w_building">
+    <End Type="WuyeProjectModel.w_system_params" Role="w_system_params" Multiplicity="0..1" />
+    <End Type="WuyeProjectModel.w_building" Role="w_building" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_system_params">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_building">
+        <PropertyRef Name="sp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="w_house">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="b_id" Type="Int32" Nullable="false" />
+    <Property Name="d_id" Type="Int32" Nullable="false" />
+    <Property Name="d_room" Type="Int32" />
+    <Property Name="c_id" Type="Int32" Nullable="false" />
+    <Property Name="r_id" Type="Int32" />
+    <Property Name="g_id" Type="Int32" />
+    <Property Name="bz_id" Type="Int32" />
+    <Property Name="area" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="use_area" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="is_use" Type="Int32" />
+    <NavigationProperty Name="w_building" Relationship="WuyeProjectModel.FK_w_house_w_building" FromRole="w_house" ToRole="w_building" />
+    <NavigationProperty Name="w_system_params" Relationship="WuyeProjectModel.FK_w_house_w_system_params" FromRole="w_house" ToRole="w_system_params" />
+    <NavigationProperty Name="w_system_params1" Relationship="WuyeProjectModel.FK_w_house_w_system_params1" FromRole="w_house" ToRole="w_system_params" />
+    <NavigationProperty Name="w_system_params2" Relationship="WuyeProjectModel.FK_w_house_w_system_params2" FromRole="w_house" ToRole="w_system_params" />
+    <NavigationProperty Name="w_system_params3" Relationship="WuyeProjectModel.FK_w_house_w_system_params3" FromRole="w_house" ToRole="w_system_params" />
+    <NavigationProperty Name="w_system_params4" Relationship="WuyeProjectModel.FK_w_house_w_system_params4" FromRole="w_house" ToRole="w_system_params" />
+    <NavigationProperty Name="w_system_params5" Relationship="WuyeProjectModel.FK_w_house_w_system_params5" FromRole="w_house" ToRole="w_system_params" />
+    <NavigationProperty Name="w_repair" Relationship="WuyeProjectModel.FK_w_repair_w_house" FromRole="w_house" ToRole="w_repair" />
+    <NavigationProperty Name="w_user_paymoney" Relationship="WuyeProjectModel.FK_w_user_paymoney_w_house" FromRole="w_house" ToRole="w_user_paymoney" />
+    <NavigationProperty Name="w_user" Relationship="WuyeProjectModel.FK_w_user_w_house" FromRole="w_house" ToRole="w_user" />
+    <NavigationProperty Name="w_complaint" Relationship="WuyeProjectModel.FK_w_complaint_w_house" FromRole="w_house" ToRole="w_complaint" />
+  </EntityType>
+  <Association Name="FK_w_house_w_building">
+    <End Type="WuyeProjectModel.w_building" Role="w_building" Multiplicity="1" />
+    <End Type="WuyeProjectModel.w_house" Role="w_house" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_building">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_house">
+        <PropertyRef Name="b_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_w_house_w_system_params">
+    <End Type="WuyeProjectModel.w_system_params" Role="w_system_params" Multiplicity="1" />
+    <End Type="WuyeProjectModel.w_house" Role="w_house" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_system_params">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_house">
+        <PropertyRef Name="d_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_w_house_w_system_params1">
+    <End Type="WuyeProjectModel.w_system_params" Role="w_system_params" Multiplicity="0..1" />
+    <End Type="WuyeProjectModel.w_house" Role="w_house" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_system_params">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_house">
+        <PropertyRef Name="d_room" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_w_house_w_system_params2">
+    <End Type="WuyeProjectModel.w_system_params" Role="w_system_params" Multiplicity="1" />
+    <End Type="WuyeProjectModel.w_house" Role="w_house" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_system_params">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_house">
+        <PropertyRef Name="c_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_w_house_w_system_params3">
+    <End Type="WuyeProjectModel.w_system_params" Role="w_system_params" Multiplicity="0..1" />
+    <End Type="WuyeProjectModel.w_house" Role="w_house" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_system_params">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_house">
+        <PropertyRef Name="r_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_w_house_w_system_params4">
+    <End Type="WuyeProjectModel.w_system_params" Role="w_system_params" Multiplicity="0..1" />
+    <End Type="WuyeProjectModel.w_house" Role="w_house" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_system_params">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_house">
+        <PropertyRef Name="g_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_w_house_w_system_params5">
+    <End Type="WuyeProjectModel.w_system_params" Role="w_system_params" Multiplicity="0..1" />
+    <End Type="WuyeProjectModel.w_house" Role="w_house" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_system_params">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_house">
+        <PropertyRef Name="bz_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="w_complaint">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="uid" Type="Int32" />
+    <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="describe" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createtime" Type="DateTime" Precision="0" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="is_use" Type="Int32" />
+    <Property Name="result" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="house_id" Type="Int32" />
+    <Property Name="pass_detail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="w_house" Relationship="WuyeProjectModel.FK_w_complaint_w_house" FromRole="w_complaint" ToRole="w_house" />
+  </EntityType>
+  <EntityType Name="w_property_user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="wy_number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sex" Type="Int32" Nullable="false" />
+    <Property Name="work_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="pic" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="work_info" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="w_repair">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="unit_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="uid" Type="Int32" />
+    <Property Name="describe" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="state" Type="Int32" />
+    <Property Name="createtime" Type="DateTime" Precision="0" />
+    <Property Name="repeat_info" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="state_type" Type="Int32" />
+    <Property Name="louyu_id" Type="Int32" />
+    <Property Name="danyuan_id" Type="Int32" />
+    <Property Name="repair_number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="house_id" Type="Int32" />
+    <Property Name="finaly_repair_user" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="repair_work_info" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="main_repair_user" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="repair_phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="repair_pass" Type="Int32" />
+    <Property Name="pass_detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="repair_info" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="w_building" Relationship="WuyeProjectModel.FK_w_repair_w_building" FromRole="w_repair" ToRole="w_building" />
+    <NavigationProperty Name="w_house" Relationship="WuyeProjectModel.FK_w_repair_w_house" FromRole="w_repair" ToRole="w_house" />
+    <NavigationProperty Name="w_system_params" Relationship="WuyeProjectModel.FK_w_repair_w_system_params" FromRole="w_repair" ToRole="w_system_params" />
+    <NavigationProperty Name="w_user" Relationship="WuyeProjectModel.FK_w_repair_w_user" FromRole="w_repair" ToRole="w_user" />
+  </EntityType>
+  <EntityType Name="w_room">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="room_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="floor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="owner" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="construction_area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="actual_area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="home_state" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="w_user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="building_id" Type="Int32" />
+    <Property Name="danyuan_id" Type="Int32" />
+    <Property Name="house_id" Type="Int32" />
+    <Property Name="user_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="house_number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="work_address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="link_address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="remark" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createtime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="w_building" Relationship="WuyeProjectModel.FK_w_user_w_building" FromRole="w_user" ToRole="w_building" />
+    <NavigationProperty Name="w_house" Relationship="WuyeProjectModel.FK_w_user_w_house" FromRole="w_user" ToRole="w_house" />
+    <NavigationProperty Name="w_repair" Relationship="WuyeProjectModel.FK_w_repair_w_user" FromRole="w_user" ToRole="w_repair" />
+    <NavigationProperty Name="w_system_params" Relationship="WuyeProjectModel.FK_w_user_w_system_params" FromRole="w_user" ToRole="w_system_params" />
+    <NavigationProperty Name="w_packing" Relationship="WuyeProjectModel.FK_w_packing_w_packing" FromRole="w_user" ToRole="w_packing" />
+  </EntityType>
+  <EntityType Name="w_user_paymoney">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="house_id" Type="Int32" />
+    <Property Name="number" Type="Int32" />
+    <Property Name="price" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="should_pay" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="realy_pay" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="no_pay" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="start_pay_time" Type="DateTime" Precision="3" />
+    <Property Name="by_id" Type="Int32" />
+    <NavigationProperty Name="w_admin" Relationship="WuyeProjectModel.FK_w_user_paymoney_w_admin" FromRole="w_user_paymoney" ToRole="w_admin" />
+    <NavigationProperty Name="w_house" Relationship="WuyeProjectModel.FK_w_user_paymoney_w_house" FromRole="w_user_paymoney" ToRole="w_house" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_w_user_paymoney_w_admin">
+    <End Type="WuyeProjectModel.w_admin" Role="w_admin" Multiplicity="0..1" />
+    <End Type="WuyeProjectModel.w_user_paymoney" Role="w_user_paymoney" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_admin">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_user_paymoney">
+        <PropertyRef Name="by_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_w_repair_w_building">
+    <End Type="WuyeProjectModel.w_building" Role="w_building" Multiplicity="0..1" />
+    <End Type="WuyeProjectModel.w_repair" Role="w_repair" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_building">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_repair">
+        <PropertyRef Name="louyu_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_w_user_w_building">
+    <End Type="WuyeProjectModel.w_building" Role="w_building" Multiplicity="0..1" />
+    <End Type="WuyeProjectModel.w_user" Role="w_user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_building">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_user">
+        <PropertyRef Name="building_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_w_repair_w_house">
+    <End Type="WuyeProjectModel.w_house" Role="w_house" Multiplicity="0..1" />
+    <End Type="WuyeProjectModel.w_repair" Role="w_repair" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_house">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_repair">
+        <PropertyRef Name="house_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_w_user_paymoney_w_house">
+    <End Type="WuyeProjectModel.w_house" Role="w_house" Multiplicity="0..1" />
+    <End Type="WuyeProjectModel.w_user_paymoney" Role="w_user_paymoney" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_house">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_user_paymoney">
+        <PropertyRef Name="house_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_w_user_w_house">
+    <End Type="WuyeProjectModel.w_house" Role="w_house" Multiplicity="0..1" />
+    <End Type="WuyeProjectModel.w_user" Role="w_user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_house">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_user">
+        <PropertyRef Name="house_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_w_repair_w_system_params">
+    <End Type="WuyeProjectModel.w_system_params" Role="w_system_params" Multiplicity="0..1" />
+    <End Type="WuyeProjectModel.w_repair" Role="w_repair" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_system_params">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_repair">
+        <PropertyRef Name="danyuan_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_w_repair_w_user">
+    <End Type="WuyeProjectModel.w_user" Role="w_user" Multiplicity="0..1" />
+    <End Type="WuyeProjectModel.w_repair" Role="w_repair" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_repair">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_w_user_w_system_params">
+    <End Type="WuyeProjectModel.w_system_params" Role="w_system_params" Multiplicity="0..1" />
+    <End Type="WuyeProjectModel.w_user" Role="w_user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_system_params">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_user">
+        <PropertyRef Name="danyuan_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_w_complaint_w_house">
+    <End Type="WuyeProjectModel.w_house" Role="w_house" Multiplicity="0..1" />
+    <End Type="WuyeProjectModel.w_complaint" Role="w_complaint" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_house">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_complaint">
+        <PropertyRef Name="house_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="w_device">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="device_id" Type="Int64" />
+    <Property Name="device_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="device_desc" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="createtime" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="w_packing">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="packing_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="packing_lot" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="packing_lotID" Type="Int64" />
+    <Property Name="packing_state" Type="Int32" />
+    <Property Name="packing_type" Type="Int32" />
+    <Property Name="packing_area" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="packing_uid" Type="Int32" />
+    <NavigationProperty Name="w_user" Relationship="WuyeProjectModel.FK_w_packing_w_packing" FromRole="w_packing" ToRole="w_user" />
+  </EntityType>
+  <Association Name="FK_w_packing_w_packing">
+    <End Type="WuyeProjectModel.w_user" Role="w_user" Multiplicity="0..1" />
+    <End Type="WuyeProjectModel.w_packing" Role="w_packing" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_packing">
+        <PropertyRef Name="packing_uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

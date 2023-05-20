@@ -1,0 +1,588 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WuyeProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="w_admin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="pass" Type="varchar" MaxLength="30" />
+    <Property Name="nickname" Type="varchar" MaxLength="30" />
+    <Property Name="power" Type="int" />
+    <Property Name="createtime" Type="date" />
+  </EntityType>
+  <EntityType Name="w_announcement">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="number" Type="varchar" MaxLength="50" />
+    <Property Name="title" Type="varchar" MaxLength="100" />
+    <Property Name="createtime" Type="date" />
+    <Property Name="contents" Type="text" />
+    <Property Name="uid" Type="int" />
+    <Property Name="nickname" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="w_building">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="room_name" Type="varchar" MaxLength="50" />
+    <Property Name="floors" Type="int" />
+    <Property Name="height" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="area" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="createtime" Type="date" />
+    <Property Name="sp_id" Type="int" />
+    <Property Name="remark" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="w_complaint">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="uid" Type="int" />
+    <Property Name="address" Type="varchar" MaxLength="50" />
+    <Property Name="phone" Type="varchar" MaxLength="50" />
+    <Property Name="describe" Type="varchar" MaxLength="200" />
+    <Property Name="state" Type="varchar" MaxLength="50" />
+    <Property Name="createtime" Type="date" />
+    <Property Name="title" Type="varchar" MaxLength="50" />
+    <Property Name="is_use" Type="int" />
+    <Property Name="result" Type="varchar" MaxLength="50" />
+    <Property Name="house_id" Type="int" />
+    <Property Name="pass_detail" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="w_device">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="device_id" Type="bigint" />
+    <Property Name="device_name" Type="varchar" MaxLength="50" />
+    <Property Name="device_desc" Type="varchar" MaxLength="200" />
+    <Property Name="createtime" Type="date" />
+  </EntityType>
+  <EntityType Name="w_house">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="b_id" Type="int" Nullable="false" />
+    <Property Name="d_id" Type="int" Nullable="false" />
+    <Property Name="d_room" Type="int" />
+    <Property Name="c_id" Type="int" Nullable="false" />
+    <Property Name="r_id" Type="int" />
+    <Property Name="g_id" Type="int" />
+    <Property Name="bz_id" Type="int" />
+    <Property Name="area" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="use_area" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="is_use" Type="int" />
+  </EntityType>
+  <EntityType Name="w_installation">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sp_id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="phone" Type="varchar" MaxLength="20" />
+    <Property Name="main_name" Type="varchar" MaxLength="50" />
+    <Property Name="contents" Type="text" />
+    <Property Name="title" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="w_packing">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="packing_name" Type="varchar" MaxLength="50" />
+    <Property Name="packing_lot" Type="varchar" MaxLength="50" />
+    <Property Name="packing_lotID" Type="bigint" />
+    <Property Name="packing_state" Type="int" />
+    <Property Name="packing_type" Type="int" />
+    <Property Name="packing_area" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="packing_uid" Type="int" />
+  </EntityType>
+  <EntityType Name="w_property_user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="wy_number" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="sex" Type="int" Nullable="false" />
+    <Property Name="work_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_number" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="address" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="phone" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="pic" Type="text" Nullable="false" />
+    <Property Name="work_info" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="w_repair">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="50" />
+    <Property Name="unit_name" Type="varchar" MaxLength="50" />
+    <Property Name="uid" Type="int" />
+    <Property Name="describe" Type="text" />
+    <Property Name="state" Type="int" />
+    <Property Name="createtime" Type="date" />
+    <Property Name="repeat_info" Type="text" />
+    <Property Name="state_type" Type="int" />
+    <Property Name="louyu_id" Type="int" />
+    <Property Name="danyuan_id" Type="int" />
+    <Property Name="repair_number" Type="varchar" MaxLength="50" />
+    <Property Name="house_id" Type="int" />
+    <Property Name="finaly_repair_user" Type="varchar" MaxLength="50" />
+    <Property Name="repair_work_info" Type="varchar" MaxLength="50" />
+    <Property Name="main_repair_user" Type="varchar" MaxLength="50" />
+    <Property Name="repair_phone" Type="varchar" MaxLength="20" />
+    <Property Name="repair_pass" Type="int" />
+    <Property Name="pass_detail" Type="text" />
+    <Property Name="repair_info" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="w_room">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="room_id" Type="varchar" MaxLength="50" />
+    <Property Name="floor" Type="varchar" MaxLength="50" />
+    <Property Name="owner" Type="varchar" MaxLength="50" />
+    <Property Name="phone" Type="varchar" MaxLength="50" />
+    <Property Name="type" Type="varchar" MaxLength="50" />
+    <Property Name="construction_area" Type="varchar" MaxLength="50" />
+    <Property Name="actual_area" Type="varchar" MaxLength="50" />
+    <Property Name="home_state" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="w_room_info">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="phone" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="link_name" Type="varchar" MaxLength="10" />
+    <Property Name="stop_car_area" Type="int" />
+    <Property Name="construct_date" Type="date" />
+    <Property Name="road_area" Type="int" />
+    <Property Name="room_area" Type="int" />
+    <Property Name="lh_area" Type="int" />
+    <Property Name="room_number" Type="int" />
+    <Property Name="address" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="remark" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="w_system_params">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="code" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="20" />
+    <Property Name="type" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="w_user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="building_id" Type="int" />
+    <Property Name="danyuan_id" Type="int" />
+    <Property Name="house_id" Type="int" />
+    <Property Name="user_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="house_number" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="phone" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_number" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="work_address" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="link_address" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="remark" Type="varchar" MaxLength="50" />
+    <Property Name="createtime" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="w_user_paymoney">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="house_id" Type="int" />
+    <Property Name="number" Type="int" />
+    <Property Name="price" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="should_pay" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="realy_pay" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="no_pay" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="start_pay_time" Type="datetime" />
+    <Property Name="by_id" Type="int" />
+    <Property Name="title" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_w_announcement_w_admin">
+    <End Role="w_admin" Type="Self.w_admin" Multiplicity="0..1" />
+    <End Role="w_announcement" Type="Self.w_announcement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_admin">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_announcement">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_w_building_w_building">
+    <End Role="w_system_params" Type="Self.w_system_params" Multiplicity="0..1" />
+    <End Role="w_building" Type="Self.w_building" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_system_params">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_building">
+        <PropertyRef Name="sp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_w_complaint_w_house">
+    <End Role="w_house" Type="Self.w_house" Multiplicity="0..1" />
+    <End Role="w_complaint" Type="Self.w_complaint" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_house">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_complaint">
+        <PropertyRef Name="house_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_w_house_w_building">
+    <End Role="w_building" Type="Self.w_building" Multiplicity="1" />
+    <End Role="w_house" Type="Self.w_house" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_building">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_house">
+        <PropertyRef Name="b_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_w_house_w_system_params">
+    <End Role="w_system_params" Type="Self.w_system_params" Multiplicity="1" />
+    <End Role="w_house" Type="Self.w_house" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_system_params">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_house">
+        <PropertyRef Name="d_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_w_house_w_system_params1">
+    <End Role="w_system_params" Type="Self.w_system_params" Multiplicity="0..1" />
+    <End Role="w_house" Type="Self.w_house" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_system_params">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_house">
+        <PropertyRef Name="d_room" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_w_house_w_system_params2">
+    <End Role="w_system_params" Type="Self.w_system_params" Multiplicity="1" />
+    <End Role="w_house" Type="Self.w_house" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_system_params">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_house">
+        <PropertyRef Name="c_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_w_house_w_system_params3">
+    <End Role="w_system_params" Type="Self.w_system_params" Multiplicity="0..1" />
+    <End Role="w_house" Type="Self.w_house" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_system_params">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_house">
+        <PropertyRef Name="r_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_w_house_w_system_params4">
+    <End Role="w_system_params" Type="Self.w_system_params" Multiplicity="0..1" />
+    <End Role="w_house" Type="Self.w_house" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_system_params">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_house">
+        <PropertyRef Name="g_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_w_house_w_system_params5">
+    <End Role="w_system_params" Type="Self.w_system_params" Multiplicity="0..1" />
+    <End Role="w_house" Type="Self.w_house" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_system_params">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_house">
+        <PropertyRef Name="bz_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_w_installation_w_installation">
+    <End Role="w_system_params" Type="Self.w_system_params" Multiplicity="1" />
+    <End Role="w_installation" Type="Self.w_installation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_system_params">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_installation">
+        <PropertyRef Name="sp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_w_packing_w_packing">
+    <End Role="w_user" Type="Self.w_user" Multiplicity="0..1" />
+    <End Role="w_packing" Type="Self.w_packing" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_packing">
+        <PropertyRef Name="packing_uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_w_repair_w_building">
+    <End Role="w_building" Type="Self.w_building" Multiplicity="0..1" />
+    <End Role="w_repair" Type="Self.w_repair" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_building">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_repair">
+        <PropertyRef Name="louyu_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_w_repair_w_house">
+    <End Role="w_house" Type="Self.w_house" Multiplicity="0..1" />
+    <End Role="w_repair" Type="Self.w_repair" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_house">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_repair">
+        <PropertyRef Name="house_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_w_repair_w_system_params">
+    <End Role="w_system_params" Type="Self.w_system_params" Multiplicity="0..1" />
+    <End Role="w_repair" Type="Self.w_repair" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_system_params">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_repair">
+        <PropertyRef Name="danyuan_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_w_repair_w_user">
+    <End Role="w_user" Type="Self.w_user" Multiplicity="0..1" />
+    <End Role="w_repair" Type="Self.w_repair" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_repair">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_w_user_paymoney_w_admin">
+    <End Role="w_admin" Type="Self.w_admin" Multiplicity="0..1" />
+    <End Role="w_user_paymoney" Type="Self.w_user_paymoney" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_admin">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_user_paymoney">
+        <PropertyRef Name="by_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_w_user_paymoney_w_house">
+    <End Role="w_house" Type="Self.w_house" Multiplicity="0..1" />
+    <End Role="w_user_paymoney" Type="Self.w_user_paymoney" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_house">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_user_paymoney">
+        <PropertyRef Name="house_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_w_user_w_building">
+    <End Role="w_building" Type="Self.w_building" Multiplicity="0..1" />
+    <End Role="w_user" Type="Self.w_user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_building">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_user">
+        <PropertyRef Name="building_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_w_user_w_house">
+    <End Role="w_house" Type="Self.w_house" Multiplicity="0..1" />
+    <End Role="w_user" Type="Self.w_user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_house">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_user">
+        <PropertyRef Name="house_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_w_user_w_system_params">
+    <End Role="w_system_params" Type="Self.w_system_params" Multiplicity="0..1" />
+    <End Role="w_user" Type="Self.w_user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="w_system_params">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="w_user">
+        <PropertyRef Name="danyuan_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WuyeProjectModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="w_admin" EntityType="Self.w_admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="w_announcement" EntityType="Self.w_announcement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="w_building" EntityType="Self.w_building" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="w_complaint" EntityType="Self.w_complaint" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="w_device" EntityType="Self.w_device" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="w_house" EntityType="Self.w_house" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="w_installation" EntityType="Self.w_installation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="w_packing" EntityType="Self.w_packing" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="w_property_user" EntityType="Self.w_property_user" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="w_repair" EntityType="Self.w_repair" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="w_room" EntityType="Self.w_room" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="w_room_info" EntityType="Self.w_room_info" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="w_system_params" EntityType="Self.w_system_params" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="w_user" EntityType="Self.w_user" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="w_user_paymoney" EntityType="Self.w_user_paymoney" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_w_announcement_w_admin" Association="Self.FK_w_announcement_w_admin">
+      <End Role="w_admin" EntitySet="w_admin" />
+      <End Role="w_announcement" EntitySet="w_announcement" />
+    </AssociationSet>
+    <AssociationSet Name="FK_w_building_w_building" Association="Self.FK_w_building_w_building">
+      <End Role="w_system_params" EntitySet="w_system_params" />
+      <End Role="w_building" EntitySet="w_building" />
+    </AssociationSet>
+    <AssociationSet Name="FK_w_complaint_w_house" Association="Self.FK_w_complaint_w_house">
+      <End Role="w_house" EntitySet="w_house" />
+      <End Role="w_complaint" EntitySet="w_complaint" />
+    </AssociationSet>
+    <AssociationSet Name="FK_w_house_w_building" Association="Self.FK_w_house_w_building">
+      <End Role="w_building" EntitySet="w_building" />
+      <End Role="w_house" EntitySet="w_house" />
+    </AssociationSet>
+    <AssociationSet Name="FK_w_house_w_system_params" Association="Self.FK_w_house_w_system_params">
+      <End Role="w_system_params" EntitySet="w_system_params" />
+      <End Role="w_house" EntitySet="w_house" />
+    </AssociationSet>
+    <AssociationSet Name="FK_w_house_w_system_params1" Association="Self.FK_w_house_w_system_params1">
+      <End Role="w_system_params" EntitySet="w_system_params" />
+      <End Role="w_house" EntitySet="w_house" />
+    </AssociationSet>
+    <AssociationSet Name="FK_w_house_w_system_params2" Association="Self.FK_w_house_w_system_params2">
+      <End Role="w_system_params" EntitySet="w_system_params" />
+      <End Role="w_house" EntitySet="w_house" />
+    </AssociationSet>
+    <AssociationSet Name="FK_w_house_w_system_params3" Association="Self.FK_w_house_w_system_params3">
+      <End Role="w_system_params" EntitySet="w_system_params" />
+      <End Role="w_house" EntitySet="w_house" />
+    </AssociationSet>
+    <AssociationSet Name="FK_w_house_w_system_params4" Association="Self.FK_w_house_w_system_params4">
+      <End Role="w_system_params" EntitySet="w_system_params" />
+      <End Role="w_house" EntitySet="w_house" />
+    </AssociationSet>
+    <AssociationSet Name="FK_w_house_w_system_params5" Association="Self.FK_w_house_w_system_params5">
+      <End Role="w_system_params" EntitySet="w_system_params" />
+      <End Role="w_house" EntitySet="w_house" />
+    </AssociationSet>
+    <AssociationSet Name="FK_w_installation_w_installation" Association="Self.FK_w_installation_w_installation">
+      <End Role="w_system_params" EntitySet="w_system_params" />
+      <End Role="w_installation" EntitySet="w_installation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_w_packing_w_packing" Association="Self.FK_w_packing_w_packing">
+      <End Role="w_user" EntitySet="w_user" />
+      <End Role="w_packing" EntitySet="w_packing" />
+    </AssociationSet>
+    <AssociationSet Name="FK_w_repair_w_building" Association="Self.FK_w_repair_w_building">
+      <End Role="w_building" EntitySet="w_building" />
+      <End Role="w_repair" EntitySet="w_repair" />
+    </AssociationSet>
+    <AssociationSet Name="FK_w_repair_w_house" Association="Self.FK_w_repair_w_house">
+      <End Role="w_house" EntitySet="w_house" />
+      <End Role="w_repair" EntitySet="w_repair" />
+    </AssociationSet>
+    <AssociationSet Name="FK_w_repair_w_system_params" Association="Self.FK_w_repair_w_system_params">
+      <End Role="w_system_params" EntitySet="w_system_params" />
+      <End Role="w_repair" EntitySet="w_repair" />
+    </AssociationSet>
+    <AssociationSet Name="FK_w_repair_w_user" Association="Self.FK_w_repair_w_user">
+      <End Role="w_user" EntitySet="w_user" />
+      <End Role="w_repair" EntitySet="w_repair" />
+    </AssociationSet>
+    <AssociationSet Name="FK_w_user_paymoney_w_admin" Association="Self.FK_w_user_paymoney_w_admin">
+      <End Role="w_admin" EntitySet="w_admin" />
+      <End Role="w_user_paymoney" EntitySet="w_user_paymoney" />
+    </AssociationSet>
+    <AssociationSet Name="FK_w_user_paymoney_w_house" Association="Self.FK_w_user_paymoney_w_house">
+      <End Role="w_house" EntitySet="w_house" />
+      <End Role="w_user_paymoney" EntitySet="w_user_paymoney" />
+    </AssociationSet>
+    <AssociationSet Name="FK_w_user_w_building" Association="Self.FK_w_user_w_building">
+      <End Role="w_building" EntitySet="w_building" />
+      <End Role="w_user" EntitySet="w_user" />
+    </AssociationSet>
+    <AssociationSet Name="FK_w_user_w_house" Association="Self.FK_w_user_w_house">
+      <End Role="w_house" EntitySet="w_house" />
+      <End Role="w_user" EntitySet="w_user" />
+    </AssociationSet>
+    <AssociationSet Name="FK_w_user_w_system_params" Association="Self.FK_w_user_w_system_params">
+      <End Role="w_system_params" EntitySet="w_system_params" />
+      <End Role="w_user" EntitySet="w_user" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,85 @@
+﻿@model IEnumerable<WYsystem.Models.w_installation>
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Surrounding Detail </title>
+    <link rel="stylesheet" type="text/css" href="/Content/Owner/Index/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/Content/Owner/Index/css/nprogress.css">
+    <link rel="stylesheet" type="text/css" href="/Content/Owner/Index/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/Content/Owner/Index/css/font-awesome.min.css">
+    <script src="/Content/Owner/Index/js/jquery-2.1.4.min.js"></script>
+    <script src="/Content/Owner/Index/js/nprogress.js"></script>
+    <script src="/Content/Owner/Index/js/jquery.lazyload.min.js"></script>
+</head>
+
+<body class="user-select single">
+    <header class="header">
+        <nav class="navbar navbar-default" id="navbar">
+            <div class="container">
+                <div class="navbar-header">
+                    <!-- logo -->
+                    <h1 class="logo hvr-bounce-in"><a href="" title=""></a></h1>
+                </div>
+                <div class="collapse navbar-collapse" id="header-navbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="hidden-index active"><a data-cont="" href="/Home/Index">Home</a></li>
+                        <li><a href="/Home/WyNotice">Announcement</a></li>
+                        <li><a href="/Home/WyInstallation">Surrounding</a></li>
+                        <li><a href="/Home/WyProUser">Employees</a></li>
+                        @*<li><a href="/Home/Detail">Introduction</a></li>
+        <li><a href="#">About Us</a></li>*@
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section class="container">
+        <div class="content-wrap">
+            @foreach (var item in Model)
+            {
+                <div class="content" style="width: 100%;">
+                    <header class="article-header">
+                        <h1 class="article-title">@item.title</h1>
+                        <div class="article-meta">
+                            <span class="item article-meta-time">
+                                <time class="time" data-toggle="tooltip" data-placement="bottom" title="Phone">
+                                    <i class="glyphicon glyphicon-phone"></i> @item.phone
+                                </time>
+                            </span>
+                            <span class="item article-meta-source" data-toggle="tooltip" data-placement="bottom" title="Type">
+                                <i class="glyphicon glyphicon-home"></i> @item.w_system_params.name
+                            </span>
+                            <span class="item article-meta-source" data-toggle="tooltip" data-placement="bottom" title="Pulisher">
+                                <i class="glyphicon glyphicon-user"></i> @item.main_name
+                            </span>
+                            <span class="item article-meta-views" data-toggle="tooltip" data-placement="bottom" title="Read">
+                                <i class="glyphicon glyphicon-eye-open"></i> total read
+                            </span>
+                        </div>
+                    </header>
+                    <article class="article-content">
+                        <p>Information</p>
+                    </article>
+                </div>
+            }
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <p>Building Stack <a href="/Login/Index" style="color:blue;">Login as Manager</a></p>
+        </div>
+        <div id="gotop">
+            <a class="gotop"></a>
+        </div>
+    </footer>
+    <script src="/Content/Owner/Index/js/bootstrap.min.js"></script>
+    <script src="/Content/Owner/Index/js/jquery.ias.js"></script>
+    <script src="/Content/Owner/Index/js/scripts.js"></script>
+</body>
+
+</html>

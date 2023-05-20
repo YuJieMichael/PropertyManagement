@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e95546a34f434040ba0489dcc29356b0" Name="Diagram1" ZoomLevel="88">
+        <EntityTypeShape EntityType="WuyeProjectModel.w_admin" Width="1.5" PointX="8.375" PointY="1.875" />
+        <EntityTypeShape EntityType="WuyeProjectModel.w_announcement" Width="1.5" PointX="10.625" PointY="1.875" />
+        <AssociationConnector Association="WuyeProjectModel.FK_w_announcement_w_admin" />
+        <EntityTypeShape EntityType="WuyeProjectModel.w_room_info" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="WuyeProjectModel.w_system_params" Width="1.5" PointX="3.75" PointY="0.625" />
+        <EntityTypeShape EntityType="WuyeProjectModel.w_installation" Width="1.5" PointX="6" PointY="0.5" />
+        <AssociationConnector Association="WuyeProjectModel.FK_w_installation_w_installation" />
+        <EntityTypeShape EntityType="WuyeProjectModel.w_building" Width="1.5" PointX="6" PointY="4.375" />
+        <AssociationConnector Association="WuyeProjectModel.FK_w_building_w_building" />
+        <EntityTypeShape EntityType="WuyeProjectModel.w_house" Width="1.5" PointX="8.25" PointY="5.625" />
+        <AssociationConnector Association="WuyeProjectModel.FK_w_house_w_building" />
+        <AssociationConnector Association="WuyeProjectModel.FK_w_house_w_system_params" />
+        <AssociationConnector Association="WuyeProjectModel.FK_w_house_w_system_params1" />
+        <AssociationConnector Association="WuyeProjectModel.FK_w_house_w_system_params2" />
+        <AssociationConnector Association="WuyeProjectModel.FK_w_house_w_system_params3" />
+        <AssociationConnector Association="WuyeProjectModel.FK_w_house_w_system_params4" />
+        <AssociationConnector Association="WuyeProjectModel.FK_w_house_w_system_params5" />
+        <EntityTypeShape EntityType="WuyeProjectModel.w_complaint" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="WuyeProjectModel.w_property_user" Width="1.5" PointX="2.75" PointY="5.75" />
+        <EntityTypeShape EntityType="WuyeProjectModel.w_repair" Width="1.5" PointX="10.875" PointY="6" />
+        <EntityTypeShape EntityType="WuyeProjectModel.w_room" Width="1.5" PointX="4.75" PointY="8.75" />
+        <EntityTypeShape EntityType="WuyeProjectModel.w_user" Width="1.5" PointX="13.875" PointY="3.375" />
+        <EntityTypeShape EntityType="WuyeProjectModel.w_user_paymoney" Width="1.5" PointX="14" PointY="8.75" />
+        <AssociationConnector Association="WuyeProjectModel.FK_w_user_paymoney_w_admin" />
+        <AssociationConnector Association="WuyeProjectModel.FK_w_repair_w_building" />
+        <AssociationConnector Association="WuyeProjectModel.FK_w_user_w_building" />
+        <AssociationConnector Association="WuyeProjectModel.FK_w_repair_w_house" />
+        <AssociationConnector Association="WuyeProjectModel.FK_w_user_paymoney_w_house" />
+        <AssociationConnector Association="WuyeProjectModel.FK_w_user_w_house" />
+        <AssociationConnector Association="WuyeProjectModel.FK_w_repair_w_system_params" />
+        <AssociationConnector Association="WuyeProjectModel.FK_w_repair_w_user" />
+        <AssociationConnector Association="WuyeProjectModel.FK_w_user_w_system_params" />
+        <EntityTypeShape EntityType="WuyeProjectModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="9.75" />
+        <AssociationConnector Association="WuyeProjectModel.FK_w_complaint_w_house" />
+        <EntityTypeShape EntityType="WuyeProjectModel.w_device" Width="1.5" PointX="7.375" PointY="11.75" />
+        <EntityTypeShape EntityType="WuyeProjectModel.w_packing" Width="1.5" PointX="16.125" PointY="4.375" />
+        <AssociationConnector Association="WuyeProjectModel.FK_w_packing_w_packing" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

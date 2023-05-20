@@ -1,0 +1,108 @@
+﻿@model IEnumerable<WYsystem.Models.w_packing>
+
+@{
+    ViewBag.Title = "Parking Management";
+    Layout = "~/Views/Shared/_BackAdmin.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row cm-fix-height">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h2>Parking Management</h2></div>
+                <div class="panel-body">
+                    <form action="" method="get">
+                        <div class="row">
+                            <div class="col-md-2" style="line-height:40px;">
+                                <a href="/Packing/Create" class="btn btn-info">Add Parking Space</a> Search：
+                            </div>
+                            <div>
+                                <div class="col-sm-2">
+                                    <input name="keyword" class="form-control" placeholder="key word">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="col-sm-1">
+                                    <input type="submit" class="btn btn-primary" value="search" />
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                    <table class="table">
+                        <tr>
+                            <th>
+                                Parking
+                            </th>
+                            <th>
+                                Location
+                            </th>
+                            <th>
+                                Id
+                            </th>
+                            <th>
+                                Status
+                            </th>
+                            <th>
+                                Type
+                            </th>
+                            <th>
+                                Area
+                            </th>
+                            <th>
+                                User
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.packing_name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.packing_lot)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.packing_lotID)
+                                </td>
+                                <td>
+                                    @if (item.packing_state == 0)
+                                    {
+                                        <span>Empty</span>
+                                    }
+                                    else if (item.packing_state == 1)
+                                    {
+                                        <span>Already Use</span>
+                                    }
+                                </td>
+                                <td>
+                                    @if (item.packing_type == 1)
+                                    {
+                                        <span>Ordinary</span>
+                                    }
+                                    else if (item.packing_type == 1)
+                                    {
+                                        <span>Shared</span>
+                                    }    
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.packing_area)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.w_user.user_name)
+                                </td>
+                                <td>
+                                    <a href="/Packing/Edit?id=@item.id" class="btn btn-success">Edit</a>  |
+                                    <a href="/Packing/Delete?id=@item.id" class="btn btn-warning" onclick="return confirm('Do you want to delete？')">Delete</a>
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

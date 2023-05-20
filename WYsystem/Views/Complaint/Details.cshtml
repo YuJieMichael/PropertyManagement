@@ -1,0 +1,115 @@
+﻿@model WYsystem.Models.w_complaint
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_BackAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Complaint</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.uid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.uid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.describe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.describe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.state)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.state)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.createtime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.createtime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.is_use)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.is_use)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.result)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.result)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.house_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.house_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pass_detail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pass_detail)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

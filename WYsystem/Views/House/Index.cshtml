@@ -1,0 +1,109 @@
+﻿@model IEnumerable<WYsystem.Models.w_house>
+
+@{
+    ViewBag.Title = "Room Information";
+    Layout = "~/Views/Shared/_BackAdmin.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row cm-fix-height">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h2>Room Information</h2></div>
+                <div class="panel-body">
+                    <form action="" method="get">
+                        <div class="row">
+                            <div class="col-md-2" style="line-height:40px;">
+                                Search：
+                            </div>
+                            <div>
+                                <div class="col-sm-2">
+                                    <input name="keyword" class="form-control" placeholder="key word">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="col-sm-1">
+                                    <input type="submit" class="btn btn-primary" value="search" />
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                    <table class="table">
+                        <tr>
+                            <th>
+                                Room Title
+                            </th>
+                            <th>
+                                Area
+                            </th>
+                            <th>
+                                Using Area
+                            </th>
+                            <th>
+                                Use
+                            </th>
+                            <th>
+                                Building Name
+                            </th>
+                            <th>
+                                Block
+                            </th>
+
+                            <th>
+                               Location
+                            </th>
+                            <th>
+                               Description
+                            </th>
+                            <th>Search</th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.title)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.area)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.use_area)
+                                </td>
+                                <td>
+                                    @if (item.is_use == 1)
+                                    {
+                                        <span style="color:blue;">Already use</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Empty</span>
+                                    }
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.w_building.room_name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.w_system_params.name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.w_system_params2.name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.w_system_params3.name)
+                                </td>
+                                <td>
+                                    <a href="/House/Edit?id=@item.id" class="btn btn-info">Edit</a>
+                                    |
+                                    <a href="/House/Delete?id=@item.id" class="btn btn-warning" onclick="return confirm('Do you want to delete？')">Delete</a>
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

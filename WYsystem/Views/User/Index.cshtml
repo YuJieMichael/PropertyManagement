@@ -1,0 +1,95 @@
+﻿@model IEnumerable<WYsystem.Models.w_user>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_BackAdmin.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row cm-fix-height">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h2>User Management</h2></div>
+                <div class="panel-body">
+                    <table class="table">
+                        <tr>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Room Number
+                            </th>
+                            <th>
+                                Phone
+                            </th>
+                            <th>
+                                Email
+                            </th>
+                            <th>
+                                Workplace
+                            </th>
+                            <th>
+                                Address
+                            </th>
+                            <th>
+                                Time
+                            </th>
+                            <th>
+                                Building
+                            </th>
+                            <th>
+                                Unit
+                            </th>
+                            <th>
+                                Block
+                            </th>
+                            <th>Setting</th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.user_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.house_number)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.phone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.work_address)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.link_address)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.createtime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.w_building.room_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.w_system_params.name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.w_house.title)
+                        </td>
+                        <td>
+                            <a href="/User/Edit?id=@item.id" class="btn btn-success">Edit</a>
+                            |
+                            <a href="/User/Delete?id=@item.id" class="btn btn-warning" onclick="return confirm('Do you want to delete？')">Delete</a>
+                        </td>
+                    </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

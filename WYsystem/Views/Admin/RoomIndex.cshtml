@@ -1,0 +1,71 @@
+﻿
+
+@{
+    ViewBag.Title = "Community Management";
+    Layout = "~/Views/Shared/_BackAdmin.cshtml";
+}
+<div class="container-fluid">
+    <div class="row cm-fix-height">
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3>Basic information management of the community</h3>
+                <table class="table table-bordered" style="margin-top:10px：">
+                    @if(Model != null) { 
+
+                    <tr>
+                        <th>Name：</th>
+                        <td>@Model.name</td>
+                        <th>Phone：</th>
+                        <td>@Model.phone</td>
+                    </tr>
+                    <tr>
+                        <th>Directors：</th>
+                        <td>@Model.link_name</td>
+                        <th>Parking area：</th>
+                        <td>@Model.stop_car_area</td>
+                    </tr>
+                    <tr>
+                        <th>Construct Date：</th>
+                        <td>@Model.construct_date</td>
+                        <th>Road area：</th>
+                        <td>@Model.road_area</td>
+                    </tr>
+                    <tr>
+                        <th>Room area：</th>
+                        <td>@Model.room_area</td>
+                        <th>Green area：</th>
+                        <td>@Model.lh_area</td>
+                    </tr>
+                    <tr>
+                        <th>Buildings：</th>
+                        <td>@Model.room_number</td>
+                        <th>Address：</th>
+                        <td>@Model.address</td>
+                    </tr>
+                    <tr>
+                        <th>Discription：</th>
+                        <td colspan="3">@Model.remark</td>
+                    </tr>
+                    }
+                    else 
+                    {
+                        <tr>
+                            <th style="text-align:center：">
+                                Please add a cell information.
+                                <a href="/Admin/AddRoom">Add</a>
+                            </th>
+                        </tr>
+                    }
+                    <tr>
+                        <th colspan="4" style="text-align:center">
+                            <input type="button" class="btn btn-default" onclick="javascript: window.location.href = '/Admin/UpdateRoom';" value="Update" />
+                            <input type="button" class="btn btn-default" onclick="javascript: window.history.back();" value="Back" />
+                        </th>
+                    </tr>
+                </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

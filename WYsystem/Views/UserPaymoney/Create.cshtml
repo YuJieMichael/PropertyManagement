@@ -1,0 +1,115 @@
+﻿@model WYsystem.Models.w_user_paymoney
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_BackAdmin.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row cm-fix-height">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading" style="margin-bottom:20px"><h2>Household fee </h2></div>
+
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <label class="control-label col-md-2">
+                        Fee description
+                    </label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.title, new { htmlAttributes = new { @class = "form-control", @placeholder = "请输入收费说明" } })
+                        @Html.ValidationMessageFor(model => model.title, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2">
+                        Room number
+                    </label>
+                    <div class="col-md-10">
+                        @Html.DropDownList("house_id", null, htmlAttributes: new { @class = "form-control", @placeholder = "请输入房间号" })
+                        @Html.ValidationMessageFor(model => model.house_id, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">
+                        Quantity
+                    </label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.number, new { htmlAttributes = new { @class = "form-control", @placeholder = "请输入数量" } })
+                        @Html.ValidationMessageFor(model => model.number, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.price, "Price", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.price, new { htmlAttributes = new { @class = "form-control", @placeholder = "请输入价格" } })
+                        @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.should_pay, "Should pay", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.should_pay, new { htmlAttributes = new { @class = "form-control", @placeholder = "请输入应付金额" } })
+                        @Html.ValidationMessageFor(model => model.should_pay, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.realy_pay, "already paied", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.realy_pay, new { htmlAttributes = new { @class = "form-control", @placeholder = "请输入已付金额" } })
+                        @Html.ValidationMessageFor(model => model.realy_pay, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.no_pay, "no pay", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.no_pay, new { htmlAttributes = new { @class = "form-control", @placeholder = "请输入未支付金额" } })
+                        @Html.ValidationMessageFor(model => model.no_pay, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.start_pay_time, "payment time", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.start_pay_time, new { htmlAttributes = new { @class = "form-control",@Type="date" } })
+                        @Html.ValidationMessageFor(model => model.start_pay_time, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">
+                        经手人：
+                    </label>
+                    <div class="col-md-10">
+                        <input type="text" disabled class="form-control" name="userName" value='@Session["nickname"]' />
+                        <input type="hidden" name="by_id" value='@Session["id"]' />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Add" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

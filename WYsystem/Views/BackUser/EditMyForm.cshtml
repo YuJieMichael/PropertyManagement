@@ -1,0 +1,306 @@
+﻿@model WYsystem.Models.w_user
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Proprietor Center</title>
+    <link rel="stylesheet" type="text/css" href="/Content/Owner/UserBack/Css/identify.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/Owner/UserBack/Css/layout.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/Owner/UserBack/Css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/Owner/UserBack/Css/control_index.css" />
+    <link rel="stylesheet" href="/Content/Owner/UserBack/Css/bootstrap.min.css">
+    <script type="text/javascript" src="/Content/Owner/UserBack/Js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/Content/Owner/UserBack/Js/layer/layer.js"></script>
+    <script type="text/javascript" src="/Content/Owner/UserBack/Js/select.js"></script>
+    <script type="text/javascript" src="/Content/Owner/UserBack/Js/haidao.validate.js"></script>
+    <script src="/Content/Owner/UserBack/Js/bootstrap.min.js"></script>
+    <style>
+        .tobar_title {
+            text-align: center;
+        }
+
+        .img_Icon {
+            width: 16px;
+            height: 16px;
+            vertical-align: middle;
+        }
+
+        .img_nav {
+            width: 25px;
+            height: 20px;
+            vertical-align: middle;
+        }
+
+        .edit_user {
+            padding: 0 20px 0 20px;
+            margin-top: 20px;
+        }
+
+        #btnUpload {
+            border: 0;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="view-topbar">
+        <div class="topbar-console">
+            <div class="tobar-head fl">
+                <a href="/Home/Index" class="topbar-home-link topbar-btn text-center fl" title="Back"><span>Home</span></a>
+            </div>
+        </div>
+        <div class="topbar-info">
+            <ul style="float: right;">
+                <li class="fl topbar-info-item">
+                    <div class="dropdown">
+                        <a href="/Home/logout" class="topbar-btn" title="Logout">
+                            <span class="fl text-normal"><img src="~/Content/img/head.jpg" alt="" style="width: 40px;height: 40px;border-radius: 5px;vertical-align: middle;">&nbsp;&nbsp;@((Session["User"] as WYsystem.Models.w_user ).user_name)</span>
+                            <span class="icon-arrow-down"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="/Home/Index" style="text-align: center;">
+                                    <h5>Logout<img src="/Content/Owner/UserBack/Images/Icon/close.png" alt="" class="img_Icon"></h5>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="view-body">
+        <div class="view-sidebar">
+            <div class="sidebar-content">
+                <div class="sidebar-nav">
+                    <div class="sidebar-title">
+                        <a href="/BackUser/Index" style="text-align:center">
+                            <span class="text-normal">My Profile</span>
+                        </a>
+                    </div>
+                    <div class="sidebar-title">
+                        <a href="#">
+                            <span class="sidebar-icon"><img src="/Content/Owner/UserBack/Images/Icon/boult-x.png" class="img_nav" /></span>
+                            <span class="text-normal">Basic Information</span>
+                        </a>
+                    </div>
+                    <ul class="sidebar-trans">
+                        <li>
+                            <a href="/BackUser/MyCenter">
+                                <span class="sidebar-icon"><img src="/Content/Owner/UserBack/Images/Icon/user1.png" class="img_Icon" /></span>
+                                <span class="text-normal">Personal Information</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/BackUser/EditMyForm">
+                                <b class="sidebar-icon"><img src="/Content/Owner/UserBack/Images/icon/edit.png" class="img_Icon" /></b>
+                                <span class="text-normal">Login Information</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sidebar-nav">
+                    <div class="sidebar-title">
+                        <a href="#">
+                            <span class="sidebar-icon"><img src="/Content/Owner/UserBack/Images/Icon/boult-x.png" class="img_nav" /></span>
+                            <span class="text-normal">Property Charges</span>
+                        </a>
+                    </div>
+                    <ul class="sidebar-trans">
+                        <li>
+                            <a href="/BackUser/MyCharge">
+                                <b class="sidebar-icon"><img src="/Content/Owner/UserBack/Images/Icon/plan.png" class="img_Icon" /></b>
+                                <span class="text-normal">My Property Charges</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sidebar-nav">
+                    <div class="sidebar-title">
+                        <a href="#">
+                            <span class="sidebar-icon"><img src="/Content/Owner/UserBack/Images/Icon/boult-x.png" class="img_nav" /></span>
+                            <span class="text-normal">Repair service</span>
+                        </a>
+                    </div>
+                    <ul class="sidebar-trans">
+                        <li>
+                            <a href="/BackUser/AddRepair">
+                                <b class="sidebar-icon"><img src="/Content/Owner/UserBack/Images/Icon/upload.png" class="img_Icon" /></b>
+                                <span class="text-normal">Initiate Repairs</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/BackUser/MyRepairRecord">
+                                <b class="sidebar-icon"><img src="/Content/Owner/UserBack/Images/Icon/plan3.png" class="img_Icon" /></b>
+                                <span class="text-normal">Repair Record</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sidebar-nav">
+                    <div class="sidebar-title">
+                        <a href="#">
+                            <span class="sidebar-icon"><img src="/Content/Owner/UserBack/Images/Icon/boult-x.png" class="img_nav" /></span>
+                            <span class="text-normal">Complaint Service</span>
+                        </a>
+                    </div>
+                    <ul class="sidebar-trans">
+                        <li>
+                            <a href="/BackUser/AddComplaint">
+                                <b class="sidebar-icon"><img src="/Content/Owner/UserBack/Images/Icon/kefu.png" class="img_Icon" /></b>
+                                <span class="text-normal">Initiate Complaints</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/BackUser/MyComplaintRecord">
+                                <b class="sidebar-icon"><img src="/Content/Owner/UserBack/Images/Icon/plan2.png" class="img_Icon" /></b>
+                                <span class="text-normal">Complaint Record</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="view-product">
+            <div class="manage account-manage">
+                <div class="manage-head">
+                    <h6 class="layout padding-left manage-head-con">Login Information</h6>
+                </div>
+                <div class="edit_user">
+                    <form>
+                        <input type="text" id="user_id" name="name" value="@Model.id" style="display:none" />
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" class="form-control" value="@Model.user_name" readonly>
+                            <p style="color: red;">Change of owner needs to be done offline</p>
+                        </div>
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" class="form-control" value="@Model.username" id="account" placeholder="username">
+                        </div>
+                        <div class="form-group">
+                            <label>Old Password</label>
+                            <input type="password" class="form-control" id="oldPass" value="" placeholder="old password">
+                            <p style="color: red;" id="Oldnotice">@ViewBag.notice</p>
+                        </div>
+                        <div class="form-group">
+                            <label>New Password</label>
+                            <input type="password" class="form-control" id="newPass" value="" placeholder="new password">
+                            <p style="color: red;" id="Newnotice">@ViewBag.notice</p>
+                        </div>
+                        <div class="form-group">
+                            <label>ID</label>
+                            <input type="text" class="form-control" value="@Model.id_number" readonly>
+                            <p style="color: red;">ID cannot be changed</p>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="text" class="form-control" id="phone" value="@Model.phone" placeholder="phone">
+                        </div>
+                        <div class="form-group">
+                            <label>E-Mail</label>
+                            <input type="text" class="form-control" id="email" value="@Model.email" placeholder="email">
+                        </div>
+                        <div class="form-group">
+                            <label>Address</label>
+                            <input type="text" class="form-control" id="link_address" value="@Model.link_address" placeholder="address">
+                        </div>
+                        <div class="form-group">
+                            <label>Work Place</label>
+                            <input type="text" class="form-control" id="work_address" value="@Model.work_address" placeholder="work place">
+                        </div>
+                        <p style="color:red" id="errorText"></p>
+                        <button type="button" class="btn btn-primary" id="btnUpload">
+                            Submit
+                        </button>
+                        <span style="color:green" id="successText"></span>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        $(".sidebar-title").click(function () {
+            if ($(this).parent(".sidebar-nav").hasClass("sidebar-nav-fold")) {
+                $(this).next().slideDown(200);
+                $(this).parent(".sidebar-nav").removeClass("sidebar-nav-fold");
+            } else {
+                $(this).next().slideUp(200);
+                $(this).parent(".sidebar-nav").addClass("sidebar-nav-fold");
+            }
+        });
+        $("#btnUpload").click(function () {
+            var userId = $("#user_id").val();
+            var account = $("#account").val();
+            var oldPass = $("#oldPass").val();
+            var newPass = $("#newPass").val();
+            var phone = $("#phone").val();
+            var email = $("#email").val();
+            var link_address = $("#link_address").val();
+            var work_address = $("#work_address").val();
+            if (account == "") {
+                document.querySelector("#errorText").innerHTML = "User name can not be empty！";
+                return;
+            }
+            if (oldPass == "") {
+                document.querySelector("#errorText").innerHTML = "Old password can not be empty！";
+                return;
+            }
+            if (newPass == "") {
+                document.querySelector("#errorText").innerHTML = "New password can not be empty！";
+                return;
+            }
+            if (phone == "") {
+                document.querySelector("#errorText").innerHTML = "Phone can not be empty！";
+                return;
+            }
+            if (email == "") {
+                document.querySelector("#errorText").innerHTML = "Email can not be empty！";
+                return;
+            }
+            if (link_address == "") {
+                document.querySelector("#errorText").innerHTML = "Address can not be empty！";
+                return;
+            }
+            if (work_address == "") {
+                document.querySelector("#errorText").innerHTML = "Work place can not be empty！";
+                return
+            }
+            if (confirm('Do you want to submit?')) {
+                $.ajax({
+                    url: '/BackUser/EditMyForm',
+                    type: 'Post',
+                    data: {
+                        id: userId,
+                        username: account,
+                        oldPass:oldPass,
+                        password: newPass,
+                        phone: phone,
+                        email: email,
+                        link_address: link_address,
+                        work_address: work_address
+                    },
+                    success: function (data) {
+                        if (data == "OK") {
+                            $(this).addClass('disabled', 'true');
+                            document.querySelector("#Oldnotice").innerHTML = "";
+                            document.querySelector("#successText").innerHTML = "Update Successed!";
+                            setTimeout(() => {
+                                window.location.href = '/BackUser/EditMyForm';
+                            },1000)
+                        }
+                    },
+                    error: function () {
+                        alert("Error！Pleace try again!");
+                    }
+                })
+
+            }
+        })</script>
+</body>
+
+</html>

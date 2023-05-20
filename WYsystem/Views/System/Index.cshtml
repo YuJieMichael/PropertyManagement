@@ -1,0 +1,119 @@
+﻿@model IEnumerable<WYsystem.Models.w_system_params>
+
+@{
+    ViewBag.Title = "System Parameter";
+    Layout = "~/Views/Shared/_BackAdmin.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row cm-fix-height">
+      <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h2>System Parameter</h2></div>
+                <div class="panel-body">
+                    <form action="" method="get">
+                        <div class="row">
+                            <div class="col-md-1" style="line-height:40px;">
+                                Type：
+                            </div>
+                            <div class="col-md-2">
+                                <select name="type" class="form-control">
+                                    <option value="">All</option>
+                                    <option value="Function">Function</option>
+                                    <option value="Unit">Unit</option>
+                                    <option value="Description">Description</option>
+                                    <option value="Location">Location</option>
+                                    <option value="Size">Size</option>
+                                    <option value="Building">Building</option>
+                                    <option value="Surrounding">Surrounding</option>
+                                </select>
+                            </div>
+                             <div class="col-md-3">
+                                 <input type="submit" class="btn btn-primary" value="Search"/>
+                             </div>
+                            </div>
+                     </form>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr style="text-align:center;">
+                            <th>
+                                System Parameter
+                            </th>
+                            <th>
+                                Parameter Name
+                            </th>
+                            <th>
+                                Type
+                            </th>
+                            <th>Search</th>
+                        </tr>
+                    </thead>
+                        @if(Model.Count() < 1)
+                        {
+                            <tr class="success">
+                                <th colspan="4" style="text-align:center">Please add Parameter</th>
+                            </tr>
+                        }
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.code)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.type)
+                            </td>
+                            <td>
+                                <a href="/System/Edit/@item.id" class="btn btn-success">Edit</a>
+                                |
+                                <a href="/System/DeleteConfirmed/@item.id" onclick="return confirm('Do you want to delete?')" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+                <!--add-->
+                <form action="/System/Create" style="margin-top:40px;" method="post">
+                    <table class="table">
+                        <tr>
+                            <td>code：</td>
+                            <td>
+                                <input class="form-control" value="" name="code" required placeholder="code" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>name：</td>
+                            <td>
+                                <input class="form-control" value="" name="name" required placeholder="name" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>type：</td>
+                            <td>
+                                <select name="type" class="form-control">
+                                    <option value="">All</option>
+                                    <option value="Function">Function</option>
+                                    <option value="Unit">Unit</option>
+                                    <option value="Description">Description</option>
+                                    <option value="Location">Location</option>
+                                    <option value="Size">Size</option>
+                                    <option value="Building">Building</option>
+                                    <option value="Surrounding">Surrounding</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center">
+                                <input type="submit" value="save" class="btn btn-default" />
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

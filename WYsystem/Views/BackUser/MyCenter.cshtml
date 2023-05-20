@@ -1,0 +1,243 @@
+﻿@model WYsystem.Models.w_user
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Proprietor Center</title>
+    <link rel="stylesheet" type="text/css" href="/Content/Owner/UserBack/Css/identify.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/Owner/UserBack/Css/layout.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/Owner/UserBack/Css/account.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/Owner/UserBack/Css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/Owner/UserBack/Css/control_index.css" />
+    <script type="text/javascript" src="/Content/Owner/UserBack/Js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="/Content/Owner/UserBack/Js/layer/layer.js"></script>
+    <script type="text/javascript" src="/Content/Owner/UserBack/Js/haidao.offcial.general.js"></script>
+    <script type="text/javascript" src="/Content/Owner/UserBack/Js/select.js"></script>
+    <script type="text/javascript" src="/Content/Owner/UserBack/Js/haidao.validate.js"></script>
+    <style>
+        .tobar_title {
+            text-align: center;
+        }
+
+        .img_Icon {
+            width: 16px;
+            height: 16px;
+            vertical-align: middle;
+        }
+
+        .img_nav {
+            width: 25px;
+            height: 20px;
+            vertical-align: middle;
+        }
+
+        .user_table tr td {
+            text-align: center;
+            vertical-align: middle;
+            margin-top: 20px;
+        }
+
+        .user_table tr {
+            height: 50px;
+        }
+
+        .userInfoBox {
+            margin-top: 20px;
+        }
+
+        .user_table {
+            width: 90%;
+            height: 100%;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="view-topbar">
+        <div class="topbar-console">
+            <div class="tobar-head fl">
+                <a href="/Home/Index" class="topbar-home-link topbar-btn text-center fl" title="Back"><span>Home</span></a>
+            </div>
+        </div>
+        <div class="topbar-info">
+            <ul style="float: right;">
+                <li class="fl topbar-info-item">
+                    <div class="dropdown">
+                        <a href="#" class="topbar-btn" title="Logout">
+                            <span class="fl text-normal"><img src="~/Content/img/head.jpg" alt="" style="width: 40px;height: 40px;border-radius: 5px;vertical-align: middle;">&nbsp;&nbsp;@((Session["User"] as WYsystem.Models.w_user ).user_name)</span>
+                            <span class="icon-arrow-down"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="/Home/logout" style="text-align: center;">
+                                    <h5>Logout<img src="/Content/Owner/UserBack/Images/Icon/close.png" alt="" class="img_Icon"></h5>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="view-body">
+        <div class="view-sidebar">
+            <div class="sidebar-content">
+                <div class="sidebar-nav">
+                    <div class="sidebar-title">
+                        <a href="/BackUser/Index" style="text-align:center">
+                            <span class="text-normal">My Profile</span>
+                        </a>
+                    </div>
+                    <div class="sidebar-title">
+                        <a href="#">
+                            <span class="sidebar-icon"><img src="/Content/Owner/UserBack/Images/Icon/boult-x.png" class="img_nav" /></span>
+                            <span class="text-normal">Basic Information</span>
+                        </a>
+                    </div>
+                    <ul class="sidebar-trans">
+                        <li>
+                            <a href="/BackUser/MyCenter">
+                                <span class="sidebar-icon"><img src="/Content/Owner/UserBack/Images/Icon/user1.png" class="img_Icon" /></span>
+                                <span class="text-normal">Personal Information</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/BackUser/EditMyForm">
+                                <b class="sidebar-icon"><img src="/Content/Owner/UserBack/Images/icon/edit.png" class="img_Icon" /></b>
+                                <span class="text-normal">Login Information</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sidebar-nav">
+                    <div class="sidebar-title">
+                        <a href="#">
+                            <span class="sidebar-icon"><img src="/Content/Owner/UserBack/Images/Icon/boult-x.png" class="img_nav" /></span>
+                            <span class="text-normal">Property Charges</span>
+                        </a>
+                    </div>
+                    <ul class="sidebar-trans">
+                        <li>
+                            <a href="/BackUser/MyCharge">
+                                <b class="sidebar-icon"><img src="/Content/Owner/UserBack/Images/Icon/plan.png" class="img_Icon" /></b>
+                                <span class="text-normal">My Property Charges</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sidebar-nav">
+                    <div class="sidebar-title">
+                        <a href="#">
+                            <span class="sidebar-icon"><img src="/Content/Owner/UserBack/Images/Icon/boult-x.png" class="img_nav" /></span>
+                            <span class="text-normal">Repair service</span>
+                        </a>
+                    </div>
+                    <ul class="sidebar-trans">
+                        <li>
+                            <a href="/BackUser/AddRepair">
+                                <b class="sidebar-icon"><img src="/Content/Owner/UserBack/Images/Icon/upload.png" class="img_Icon" /></b>
+                                <span class="text-normal">Initiate Repairs</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/BackUser/MyRepairRecord">
+                                <b class="sidebar-icon"><img src="/Content/Owner/UserBack/Images/Icon/plan3.png" class="img_Icon" /></b>
+                                <span class="text-normal">Repair Record</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sidebar-nav">
+                    <div class="sidebar-title">
+                        <a href="#">
+                            <span class="sidebar-icon"><img src="/Content/Owner/UserBack/Images/Icon/boult-x.png" class="img_nav" /></span>
+                            <span class="text-normal">Complaint Service</span>
+                        </a>
+                    </div>
+                    <ul class="sidebar-trans">
+                        <li>
+                            <a href="/BackUser/AddComplaint">
+                                <b class="sidebar-icon"><img src="/Content/Owner/UserBack/Images/Icon/kefu.png" class="img_Icon" /></b>
+                                <span class="text-normal">Initiate Complaints</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/BackUser/MyComplaintRecord">
+                                <b class="sidebar-icon"><img src="/Content/Owner/UserBack/Images/Icon/plan2.png" class="img_Icon" /></b>
+                                <span class="text-normal">Complaint Record</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="view-product">
+            <div class="manage account-manage">
+                <div class="manage-head">
+                    <h6 class="layout padding-left manage-head-con">Personal Information</h6>
+                </div>
+                <div class="userInfoBox">
+                    <table border="1" cellspacing="0" align="center" class="user_table">
+                        <tr>
+                            <td>Name</td>
+                            <td>@Model.user_name</td>
+                            <td>Gender</td>
+                            <td></td>
+                            <td>Birthdate</td>
+                            <td></td>
+                            <td rowspan="4" colspan="3">Photo</td>
+                        </tr>
+                        <tr>
+                            <td>Country</td>
+                            <td></td>
+                            <td>Nation</td>
+                            <td></td>
+                            <td>Hight</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Marital Status</td>
+                            <td></td>
+                            <td>Job</td>
+                            <td></td>
+                            <td>ID</td>
+                            <td>@Model.id_number</td>
+                        </tr>
+                        <tr>
+                            <td>Phone</td>
+                            <td>@Model.phone</td>
+                            <td>E-mail</td>
+                            <td>@Model.email</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Address</td>
+                            <td colspan="6">@Model.link_address</td>
+                        </tr>
+                        <tr>
+                            <td>Work Place</td>
+                            <td colspan="6">@Model.work_address</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        $(".sidebar-title").click(function () {
+            if ($(this).parent(".sidebar-nav").hasClass("sidebar-nav-fold")) {
+                $(this).next().slideDown(200);
+                $(this).parent(".sidebar-nav").removeClass("sidebar-nav-fold");
+            } else {
+                $(this).next().slideUp(200);
+                $(this).parent(".sidebar-nav").addClass("sidebar-nav-fold");
+            }
+        });</script>
+</body>
+
+</html>

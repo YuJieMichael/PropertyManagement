@@ -1,0 +1,290 @@
+﻿@model WYsystem.Models.w_user
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>业主个人中心</title>
+    <link rel="stylesheet" type="text/css" href="/Content/Owner/UserBack/Css/identify.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/Owner/UserBack/Css/layout.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/Owner/UserBack/Css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/Owner/UserBack/Css/control_index.css" />
+    <link rel="stylesheet" href="/Content/Owner/UserBack/Css/bootstrap.min.css">
+    <script src="/Content/Owner/UserBack/Js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="/Content/Owner/UserBack/Js/jquery-3.4.1.min.js"></script>
+    <script src="/Content/Owner/UserBack/Js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/Content/Owner/UserBack/Js/select.js"></script>
+    <script type="text/javascript" src="/Content/Owner/UserBack/Js/haidao.validate.js"></script>
+    <style>
+        .tobar_title {
+            text-align: center;
+        }
+
+        .img_Icon {
+            width: 16px;
+            height: 16px;
+            vertical-align: middle;
+        }
+
+        .img_nav {
+            width: 25px;
+            height: 20px;
+            vertical-align: middle;
+        }
+
+        .edit_user {
+            padding: 0 20px 0 20px;
+            margin-top: 20px;
+        }
+
+        #btnUpload {
+            border: 0;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="view-topbar">
+        <div class="topbar-console">
+            <div class="tobar-head fl">
+                <a href="/Home/Index" class="topbar-home-link topbar-btn text-center fl" title="返回官网"><span>返回官网</span></a>
+            </div>
+        </div>
+        <div class="topbar-info">
+            <ul style="float: right;">
+                <li class="fl topbar-info-item">
+                    <div class="dropdown">
+                        <a href="/Home/logout" class="topbar-btn" title="点击退出">
+                            <span class="fl text-normal"><img src="~/Content/img/head.jpg" alt="" style="width: 40px;height: 40px;border-radius: 5px;vertical-align: middle;">&nbsp;&nbsp;@((Session["User"] as WYsystem.Models.w_user ).user_name)</span>
+                            <span class="icon-arrow-down"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="/Home/Index" style="text-align: center;">
+                                    <h5>Exit<img src="/Content/Owner/UserBack/Images/Icon/close.png" alt="" class="img_Icon"></h5>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="view-body">
+        <div class="view-sidebar">
+            <div class="sidebar-content">
+                <div class="sidebar-nav">
+                    <div class="sidebar-title">
+                        <a href="/BackUser/Index" style="text-align:center">
+                            <span class="text-normal">My Main page</span>
+                        </a>
+                    </div>
+                    <div class="sidebar-title">
+                        <a href="#">
+                            <span class="sidebar-icon"><img src="/Content/Owner/UserBack/Images/Icon/boult-x.png" class="img_nav" /></span>
+                            <span class="text-normal">Personal Information</span>
+                        </a>
+                    </div>
+                    <ul class="sidebar-trans">
+                        <li>
+                            <a href="/BackUser/MyCenter">
+                                <span class="sidebar-icon"><img src="/Content/Owner/UserBack/Images/Icon/user1.png" class="img_Icon" /></span>
+                                <span class="text-normal">My info</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/BackUser/EditMyForm">
+                                <b class="sidebar-icon"><img src="/Content/Owner/UserBack/Images/icon/edit.png" class="img_Icon" /></b>
+                                <span class="text-normal">Edit login info</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sidebar-nav">
+                    <div class="sidebar-title">
+                        <a href="#">
+                            <span class="sidebar-icon"><img src="/Content/Owner/UserBack/Images/Icon/boult-x.png" class="img_nav" /></span>
+                            <span class="text-normal">Property charge</span>
+                        </a>
+                    </div>
+                    <ul class="sidebar-trans">
+                        <li>
+                            <a href="/BackUser/MyCharge">
+                                <b class="sidebar-icon"><img src="/Content/Owner/UserBack/Images/Icon/plan.png" class="img_Icon" /></b>
+                                <span class="text-normal">My Property Charges</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sidebar-nav">
+                    <div class="sidebar-title">
+                        <a href="#">
+                            <span class="sidebar-icon"><img src="/Content/Owner/UserBack/Images/Icon/boult-x.png" class="img_nav" /></span>
+                            <span class="text-normal">repair service</span>
+                        </a>
+                    </div>
+                    <ul class="sidebar-trans">
+                        <li>
+                            <a href="/BackUser/AddRepair">
+                                <b class="sidebar-icon"><img src="/Content/Owner/UserBack/Images/Icon/upload.png" class="img_Icon" /></b>
+                                <span class="text-normal">initial a repair</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/BackUser/MyRepairRecord">
+                                <b class="sidebar-icon"><img src="/Content/Owner/UserBack/Images/Icon/plan3.png" class="img_Icon" /></b>
+                                <span class="text-normal">my repair record</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sidebar-nav">
+                    <div class="sidebar-title">
+                        <a href="#">
+                            <span class="sidebar-icon"><img src="/Content/Owner/UserBack/Images/Icon/boult-x.png" class="img_nav" /></span>
+                            <span class="text-normal">Complaint service</span>
+                        </a>
+                    </div>
+                    <ul class="sidebar-trans">
+                        <li>
+                            <a href="/BackUser/AddComplaint">
+                                <b class="sidebar-icon"><img src="/Content/Owner/UserBack/Images/Icon/kefu.png" class="img_Icon" /></b>
+                                <span class="text-normal">initial a complaint</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/BackUser/MyComplaintRecord">
+                                <b class="sidebar-icon"><img src="/Content/Owner/UserBack/Images/Icon/plan2.png" class="img_Icon" /></b>
+                                <span class="text-normal">my complaint record</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="view-product">
+            <div class="manage account-manage">
+                <div class="manage-head">
+                    <h6 class="layout padding-left manage-head-con">initial a repair</h6>
+                </div>
+                <div class="edit_user">
+                    <form>
+                        <input type="text" class="form-control" id="id" value="@Model.id" style="display:none">
+                        <div class="form-group">
+                            <label>name</label>
+                            <input type="text" class="form-control" id="name" value="@Model.user_name" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>floor</label>
+                            <input type="text" class="form-control" id="loupan" value="@Model.w_building.id" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label>unit</label>
+                            <input type="text" class="form-control" id="danyuan" value="@Model.danyuan_id" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label>room number</label>
+                            <input type="text" class="form-control" id="house" value="@Model.house_id" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label>title</label>
+                            <input type="text" class="form-control" id="title" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label>discription</label>
+                            <input type="text" class="form-control" id="describe" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label>time of damage</label>
+                            <input type="date" class="form-control" id="createtime" placeholder="" value="@DateTime.Now.ToString("yyyy-MM-dd")">
+                        </div>
+                        <p id="errorText" style="color: red;font-size: 18px;"></p>
+                        <button type="button" class="btn btn-primary" id="btnUpload">
+                            提交
+                        </button>
+                        <span id="text_success" style="color: green;font-size: 18px;"></span>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        $(".sidebar-title").click(function () {
+            if ($(this).parent(".sidebar-nav").hasClass("sidebar-nav-fold")) {
+                $(this).next().slideDown(200);
+                $(this).parent(".sidebar-nav").removeClass("sidebar-nav-fold");
+            } else {
+                $(this).next().slideUp(200);
+                $(this).parent(".sidebar-nav").addClass("sidebar-nav-fold");
+            }
+        });
+        $("#btnUpload").click(function () {
+            var id = $('#id').val();
+            var loupan = $('#loupan').val();
+            var danyuan = $('#danyuan').val();
+            var house = $('#house').val();
+            var title = $('#title').val();
+            var describe = $('#describe').val();
+            var createtime = $('#createtime').val();
+
+            if (loupan == "") {
+                document.querySelector("#errorText").innerHTML = "The number cannot be empty！";
+                return;
+            }
+            if (danyuan == "") {
+                document.querySelector("#errorText").innerHTML = "The unit cannot be empty！";
+                return;
+            }
+            if (house == "") {
+                document.querySelector("#errorText").innerHTML = "The room cannot be empty！";
+                return;
+            }
+            if (title == "") {
+                document.querySelector("#errorText").innerHTML = "title cannot be empty！";
+                return;
+            }
+            if (describe == "") {
+                document.querySelector("#errorText").innerHTML = "Discription cannot be empty！";
+                return;
+            }
+            if (createtime == "") {
+                document.querySelector("#errorText").innerHTML = "Choice a date！";
+                return;
+            }
+            if (confirm('submit data?')) {
+                $.ajax({
+                    url: '/BackUser/AddRepair',
+                    type: 'Post',
+                    data: {
+                        uid: id,
+                        louyu_id: loupan,
+                        danyuan_id: danyuan,
+                        house_id: house,
+                        title: title,
+                        describe: describe,
+                        createtime:createtime
+                    },
+                    success: function (data) {
+                        if (data == "OK") {
+                            $(this).addClass('disabled', 'true')
+                            document.querySelector("#text_success").innerHTML = 'submitted';
+                            return;
+                        }
+                        if (data == "Error") {
+                            $(this).addClass('disabled', 'true')
+                            document.querySelector("#text_success").innerHTML = 'Initiation failure。';
+                        }
+                    },
+                    error: function () {
+                        alert('bad request！');
+                    }
+                })
+            
+            }
+        })</script>
+</body>
+
+</html>

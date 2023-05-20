@@ -1,0 +1,95 @@
+﻿    @model IEnumerable<WYsystem.Models.w_user_paymoney>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_BackAdmin.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row cm-fix-height">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading" style="margin-bottom:20px"><h2>Resident fee management</h2></div>
+
+                <table class="table">
+                    <tr>
+                        <th>
+                            Room
+                        </th>
+                        <th>
+                            price
+                        </th>
+                        <th>
+                            Amount Payable
+                        </th>
+                        <th>
+                            Actual amount paid
+                        </th>
+                        <th>
+                            Unpaid amount
+                        </th>
+                        <th>
+                            Fee start time
+                        </th>
+                        <th>
+                            payment method
+                        </th>
+                        <th>
+                            person 
+                        </th>
+                        <th>编辑</th>
+                        <th>删除</th>
+                        <th>结账</th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.w_house.title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.should_pay)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.realy_pay)
+                    </td>
+                    <td>
+                        @if(item.realy_pay == item.should_pay)
+                        {
+                            <div style="color:red;">已结款</div>
+                        }
+                        else
+                        {
+                            <div>@item.no_pay</div>
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.start_pay_time)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.w_admin.username)
+                    </td>
+                    <td>
+                        <a href="/UserPaymoney/Edit?id=@item.id" class="btn btn-success">编辑</a>
+                    </td>
+                    <td>
+                        <a href="/UserPaymoney/Delete?id=@item.id" class="btn btn-warning" onclick="return confirm('是否删除该住户投诉？')">删除</a>
+                    </td>
+                    <td>
+                        <a href="/UserPaymoney/Edit2?id=@item.id" class="btn btn-success" onclick="return confirm('是否结清全部账款？')">结清全部账款</a>
+                    </td>
+                </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
